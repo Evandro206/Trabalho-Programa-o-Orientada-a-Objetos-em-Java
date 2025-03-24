@@ -18,6 +18,7 @@ public class Item {
         codigoProduto++;
     }
 
+    // Método para exibir o item
     public void exibirItem() {
         System.out.println("Nome do produto: " + nomeProduto);
         System.out.println("Código do produto: " + codigoProduto);
@@ -25,14 +26,17 @@ public class Item {
         System.out.println("Valor do produto: " + valorProduto);
     }
 
+    // Método de aumento da quantidade de produtos
     public void entraProduto(int quantidadeProduto) {
         this.quantidadeProduto += quantidadeProduto;
     } 
 
+    // Método de diminuição da quantidade de produtos
     public void saidaProduto(int quantidadeProduto) {
         this.quantidadeProduto -= quantidadeProduto;
     }
 
+    // Método set para quantidade de produtos
     public void setquatiProduto(int quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
     }
