@@ -20,6 +20,7 @@ public class Item {
 
     // Método para exibir o item
     public void exibirItem() {
+        System.out.println("------ Informações Produto ------");
         System.out.println("Nome do produto: " + nomeProduto);
         System.out.println("Código do produto: " + codigoProduto);
         System.out.println("Quantidade do produto: " + quantidadeProduto);
