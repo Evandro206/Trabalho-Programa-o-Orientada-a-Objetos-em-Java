@@ -10,6 +10,7 @@ public class Loja {
 
     // Contador de lojas
     public static int codigoLoja = 0;
+    public static float saldoLoja = 0;
 
     // Método criador
     public Loja(String nomeLoja, String cnpjLoja, String razaoSocialLoja, String enderecoLoja) {
@@ -50,6 +51,11 @@ public class Loja {
         itemVerificado.setquatiProduto(quantidade);
     }
 
+    // Método para loja realizar uma venda
+    public void vendaItem(Item itemVerificado, int quantidade, Cliente cliente) {
+        
+    }
+
     // Método para a Loja realizar um cadastro de venda
     public CupomVenda cadastroVenda(String valor, Cliente cliente, String item, String quantidade) {
         String dataVenda = new Teste().dataAtual();
@@ -58,6 +64,7 @@ public class Loja {
         return cupomVenda;
     }
 
+    // Método para a Loja exibir uma venda
     public void exibeVenda(CupomVenda cupomVenda) {
         cupomVenda.exibirCupomVenda();
     }

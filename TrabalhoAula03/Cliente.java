@@ -6,6 +6,7 @@ public class Cliente {
 	private String nomeCliente;
 	private String dataCadastroCliente;
 	private String cpfCnpjCliente;
+    private Carrinho carrinho;
 
     // Contador de clientes
     public static int codigoCliente = 0;
@@ -30,5 +31,25 @@ public class Cliente {
     // Método para o cliente realizar uma consulta de um item
     public void consultaItem(Item itemVerificado){
         itemVerificado.exibirItem();
+    }
+
+    // Método para o cliente realizar uma compra
+    public void compraItem(Item itemVerificado, int quantidade, Loja loja){
+        
+    }
+
+    // Método para o cliente criar um carrinho
+    public void criarCarrinho(){
+        carrinho = new Carrinho();
+    }
+
+    // Método para o cliente adicionar um item ao carrinho
+    public void adicionarItemCarrinho(Item item, int quantidade){
+        carrinho.adicionarItem(item, quantidade);
+    }
+
+    // Método para o cliente exibir o carrinho
+    public void exibirCarrinho(){
+        carrinho.exibirCarrinho();
     }
 }

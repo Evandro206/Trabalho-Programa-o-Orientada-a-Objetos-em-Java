@@ -18,6 +18,10 @@ public class Item {
         codigoProduto++;
     }
 
+    public float getPrecoItem() {
+        return valorProduto;
+    }
+
     // Método para exibir o item
     public void exibirItem() {
         System.out.println("------ Informações Produto ------");
