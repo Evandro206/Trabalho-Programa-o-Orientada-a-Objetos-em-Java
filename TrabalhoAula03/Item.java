@@ -8,7 +8,7 @@ public class Item {
 	private float valorProduto;
 
     // Contador de produtos
-    public static int codigoProduto = 1;
+    public static int codigoProduto = 0;
     
     // Método criador
     public Item(String nomeProduto, int quantidadeProduto, float valorProduto) {
