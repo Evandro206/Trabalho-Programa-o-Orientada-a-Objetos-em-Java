@@ -56,7 +56,6 @@ public class Teste {
         cliente1.adicionarItemCarrinho(item2, 10);
         cliente1.adicionarItemCarrinho(item3, 15);
         cliente1.adicionarItemCarrinho(item1, 5);
-        cliente1.carrinho.getQuantidadeItem(item1);
         CupomVenda Venda = loja1.cadastroVenda(cliente1, loja1, cliente1.getCarrinho());
         System.out.println("");
         System.out.println("--------------------------------");

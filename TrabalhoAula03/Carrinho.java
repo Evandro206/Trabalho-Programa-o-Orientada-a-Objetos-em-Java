@@ -9,12 +9,6 @@ public class Carrinho {
     public float valorTotal = 0;
     int indice = -1;
 
-    // Método para adicionar um item ao carrinho
-    public void adicionarItem(Item item, int quantidade) {
-        this.itensCarrinho.add(new Informacao(item, quantidade));
-        valorTotal += (item.getPrecoItem() * quantidade);
-    }
-
     // Método para exibir o carrinho
     public void exibirCarrinho() {
         System.out.println("====== Carrinho ======");
@@ -26,11 +20,29 @@ public class Carrinho {
         System.out.println("Valor total: " + valorTotal);
     }
 
+    // Método para adicionar um item ao carrinho
+    public void adicionarItem(Item item, int quantidade) {
+        this.itensCarrinho.add(new Informacao(item, quantidade));
+        valorTotal += (item.getPrecoItem() * quantidade);
+    }
+
     // Método para remover um item do carrinho
     public void removerItem(Item item, int quantidade) {
-        this.itensCarrinho.remove(item);
-        this.quantidadeItens -= quantidade;
-        valorTotal -= (item.getPrecoItem() * quantidade);
+        for (Informacao info : itensCarrinho) {
+            if (info.item == item) {
+                indice = itensCarrinho.indexOf(info);
+                break;
+            }
+        }
+        if (indice != -1) {
+            if (itensCarrinho.get(indice).quantidade > quantidade) {
+                itensCarrinho.get(indice).quantidade -= quantidade;
+                valorTotal -= (item.getPrecoItem() * quantidade);
+            } else {
+                valorTotal -= (item.getPrecoItem() * itensCarrinho.get(indice).quantidade);
+                itensCarrinho.remove(indice);
+            }
+        }
     }
 
     // Método para limpar o carrinho

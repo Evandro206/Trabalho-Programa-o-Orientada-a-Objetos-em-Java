@@ -6,7 +6,7 @@ public class CupomVenda {
     
     // Atributos
     private String dataVenda;
-    private ArrayList<Item> itens = new ArrayList<>();
+    private ArrayList<Informacao> itens = new ArrayList<>();
     private Cliente cliente;
     private Carrinho carrinho;
     private Loja loja;
@@ -32,8 +32,8 @@ public class CupomVenda {
         System.out.println("=".repeat(40));
         System.out.println("=".repeat(40));
         System.out.println("ITEMS:");
-        for (Item item : itens) {
-            System.out.println(String.format("%-20s x%2d", item.getNomeProduto(), carrinho.getQuantidadeItem(item)));
+        for (Informacao info : itens) {
+            System.out.println(String.format("%-20s x%2d", info.item.getNomeProduto(), info.quantidade));
         }
         System.out.println("-".repeat(40));
         System.out.println(String.format("N° Cupom: " + codigoVenda));
