@@ -24,6 +24,11 @@ public class Carrinho {
         System.out.println("Quantidade de itens: " + quantidadeItens);
         System.out.println("Valor total: " + valorTotal);
     }
+
+    // Método para remover um item do carrinho
+    public void removerItem(Item item, int quantidade) {
+        this.itensCarrinho.remove(item);
+        this.quantidadeItens -= quantidade;
+        valorTotal -= (item.getPrecoItem() * quantidade);
+    }
 }
-
-
