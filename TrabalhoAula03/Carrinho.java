@@ -31,4 +31,16 @@ public class Carrinho {
         this.quantidadeItens -= quantidade;
         valorTotal -= (item.getPrecoItem() * quantidade);
     }
+
+    // Método para limpar o carrinho    
+    public void limparCarrinho() {
+        this.itensCarrinho.clear();
+        this.quantidadeItens = 0;
+        this.valorTotal = 0;
+    }
+
+    // Método get para itensCarrinho
+    public ArrayList<Item> getItensCarrinho() {
+        return itensCarrinho;
+    }
 }

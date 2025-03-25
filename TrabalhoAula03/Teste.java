@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Teste {
     public static void main(String[] args) {
+        
         // Criação de um Item
         Item item1 = new Item("Arroz", 10, 5.0f);
         Item item2 = new Item("Feijão", 20, 6.0f);
@@ -41,19 +42,21 @@ public class Teste {
         System.out.println("");
         System.out.println("--------------------------------");
         System.out.println("");
-
-        CupomVenda Venda = loja1.cadastroVenda("50.0", cliente1, "Arroz", "5");
+        
+        // Criação de um Cupom de Venda
+        CupomVenda Venda = loja1.cadastroVenda(cliente1, loja1, cliente1.getCarrinho());
         loja1.exibeVenda(Venda);
         System.out.println("");
         System.out.println("--------------------------------");
         System.out.println("");
-
-        // Criação de um Carrinho
-        cliente1.criarCarrinho();
-        cliente1.adicionarItemCarrinho(item1, 5);
-        cliente1.adicionarItemCarrinho(item2, 10);
-        cliente1.adicionarItemCarrinho(item3, 15);
-        cliente1.exibirCarrinho();
+        /*
+         * // Criação de um Carrinho
+         * cliente1.criarCarrinho();
+         * cliente1.adicionarItemCarrinho(item1, 5);
+         * cliente1.adicionarItemCarrinho(item2, 10);
+         * cliente1.adicionarItemCarrinho(item3, 15);
+         * cliente1.exibirCarrinho();
+         */
     }
 
     // Método para obter a data atual

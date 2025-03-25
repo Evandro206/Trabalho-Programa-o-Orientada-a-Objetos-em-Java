@@ -52,14 +52,16 @@ public class Loja {
     }
 
     // Método para loja realizar uma venda
-    public void vendaItem(Item itemVerificado, int quantidade, Cliente cliente) {
-        
+    public void vendaItem(Cliente cliente, Loja loja, Carrinho carrinho) {
+        String dataVenda = new Teste().dataAtual();
+        CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, carrinho);
+        cupomVenda.exibirCupomVenda();
     }
 
     // Método para a Loja realizar um cadastro de venda
-    public CupomVenda cadastroVenda(String valor, Cliente cliente, String item, String quantidade) {
+    public CupomVenda cadastroVenda(Cliente cliente, Loja loja, Carrinho carrinho) {
         String dataVenda = new Teste().dataAtual();
-        CupomVenda cupomVenda = new CupomVenda(dataVenda, valor, cliente, this, item, quantidade);
+        CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, carrinho);
         cupomVenda.exibirCupomVenda();
         return cupomVenda;
     }

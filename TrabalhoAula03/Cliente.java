@@ -34,7 +34,7 @@ public class Cliente {
     }
 
     // Método para o cliente realizar uma compra
-    public void compraItem(Item itemVerificado, int quantidade, Loja loja){
+    public void comprar(Item itemVerificado, int quantidade, Loja loja, Carrinho carrinho){
         
     }
 
@@ -51,5 +51,20 @@ public class Cliente {
     // Método para o cliente exibir o carrinho
     public void exibirCarrinho(){
         carrinho.exibirCarrinho();
+    }
+
+    // Método para o cliente remover um item do carrinho
+    public void removerItemCarrinho(Item item, int quantidade){
+        carrinho.removerItem(item, quantidade);
+    }
+
+    // Método para o cliente limpar o carrinho  
+    public void limparCarrinho(){
+        carrinho.limparCarrinho();
+    }
+
+    // Método get para carrinho
+    public Carrinho getCarrinho(){
+        return carrinho;
     }
 }
