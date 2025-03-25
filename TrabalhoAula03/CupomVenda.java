@@ -33,7 +33,7 @@ public class CupomVenda {
         System.out.println("=".repeat(40));
         System.out.println("ITEMS:");
         for (Informacao info : itens) {
-            System.out.println(String.format("%-20s x%2d", info.item.getNomeProduto(), info.quantidade));
+            System.out.println(String.format("%-20s %2dun R$ %.2f", info.item.getNomeProduto(), info.quantidade, info.item.getPrecoItem()));
         }
         System.out.println("-".repeat(40));
         System.out.println(String.format("N° Cupom: " + codigoVenda));
