@@ -4,22 +4,23 @@ import java.util.ArrayList;
 
 public class Carrinho {
     // Atributos
-    private ArrayList<Item> itensCarrinho = new ArrayList<>();
-    private int quantidadeItens = 0;
-    private float valorTotal = 0;
-    
+    public ArrayList<Informacao> itensCarrinho = new ArrayList<>();
+    public int quantidadeItens = 0;
+    public float valorTotal = 0;
+    int indice = -1;
+
     // Método para adicionar um item ao carrinho
     public void adicionarItem(Item item, int quantidade) {
-        this.itensCarrinho.add(item);
-        this.quantidadeItens = quantidade;
+        this.itensCarrinho.add(new Informacao(item, quantidade));
         valorTotal += (item.getPrecoItem() * quantidade);
     }
 
     // Método para exibir o carrinho
     public void exibirCarrinho() {
-        System.out.println("------ Carrinho ------");
-        for (Item item : itensCarrinho) {
-            item.exibirItem();
+        System.out.println("====== Carrinho ======");
+        for (Informacao info : itensCarrinho) {
+            info.item.exibirItem();
+            System.out.println("Quantidade: " + info.quantidade);
         }
         System.out.println("Quantidade de itens: " + quantidadeItens);
         System.out.println("Valor total: " + valorTotal);
@@ -32,7 +33,7 @@ public class Carrinho {
         valorTotal -= (item.getPrecoItem() * quantidade);
     }
 
-    // Método para limpar o carrinho    
+    // Método para limpar o carrinho
     public void limparCarrinho() {
         this.itensCarrinho.clear();
         this.quantidadeItens = 0;
@@ -40,7 +41,12 @@ public class Carrinho {
     }
 
     // Método get para itensCarrinho
-    public ArrayList<Item> getItensCarrinho() {
+    public ArrayList<Informacao> getItensCarrinho() {
         return itensCarrinho;
+    }
+
+    // Método get para valorTotal
+    public float getValorTotal() {
+        return valorTotal;
     }
 }

@@ -3,10 +3,10 @@ package TrabalhoAula03;
 public class Loja {
 
     // Atributos
-    String nomeLoja;
-    String cnpjLoja;
-    String razaoSocialLoja;
-    String enderecoLoja;
+    public String nomeLoja;
+    public String cnpjLoja;
+    public String razaoSocialLoja;
+    public String enderecoLoja;
 
     // Contador de lojas
     public static int codigoLoja = 0;
@@ -23,12 +23,12 @@ public class Loja {
 
     // Método para exibir informações sobre a loja
     public void exibirLoja() {
-        System.out.println("------ Informações Loja ------");
-        System.out.println("Nome da loja: " + nomeLoja);
-        System.out.println("CNPJ da loja: " + cnpjLoja);
-        System.out.println("Razão Social da loja: " + razaoSocialLoja);
-        System.out.println("Endereço da loja: " + enderecoLoja);
-        System.out.println("Código da loja: " + codigoLoja);
+        System.out.println("====== Informações Loja ======");
+        System.out.println(String.format("Nome: " + nomeLoja));
+        System.out.println(String.format("Código: " + codigoLoja));
+        System.out.println(String.format("CNPJ: " + cnpjLoja));
+        System.out.println(String.format("Razão Social: " + razaoSocialLoja));
+        System.out.println(String.format("Endereço: " + enderecoLoja));
     }
 
     // Método para a Loja realizar uma consulta de um item

@@ -6,9 +6,9 @@ public class CupomVenda {
     
     // Atributos
     private String dataVenda;
-    private float valorTotal;
     private ArrayList<Item> itens = new ArrayList<>();
     private Cliente cliente;
+    private Carrinho carrinho;
     private Loja loja;
 
     // Contador de vendas
@@ -19,26 +19,27 @@ public class CupomVenda {
         this.dataVenda = dataVenda;
         this.cliente = cliente;
         this.loja = loja;
+        this.carrinho = carrinho;
         this.itens.addAll(carrinho.getItensCarrinho());
         codigoVenda++;
     }
 
     // Método para exibir o cupom de venda
     public void exibirCupomVenda() {
-        System.out.println("------ Informações Cupom de Venda ------");
+        System.out.println("====== Informações Cupom de Venda ======");
         cliente.exibirCliente();
         loja.exibirLoja();
         System.out.println("=".repeat(40));
         System.out.println("=".repeat(40));
         System.out.println("ITEMS:");
         for (Item item : itens) {
-            System.out.println(item.getNomeProduto());
+            System.out.println(String.format("%-20s x%2d", item.getNomeProduto(), carrinho.getQuantidadeItem(item)));
         }
         System.out.println("-".repeat(40));
         System.out.println(String.format("N° Cupom: " + codigoVenda));
         System.out.println(String.format("Data da Venda: "+ dataVenda));
         System.out.println(String.format("Total Produtos: " + itens.size()));
-        System.out.println(String.format("Total: R$ %.2f", valorTotal));
+        System.out.println(String.format("Total: R$ %.2f", carrinho.getValorTotal()));
         System.out.println("=".repeat(40));
         System.out.println("Obrigado pela preferência!");
         System.out.println("Volte sempre!");
