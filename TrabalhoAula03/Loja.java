@@ -51,8 +51,14 @@ public class Loja {
     }
 
     // Método para a Loja realizar um cadastro de venda
-    public void cadastroVenda(String dataVenda, String valor, String cliente, String item, String quantidade) {
-        CupomVenda cupomVenda = new CupomVenda(dataVenda, valor, cliente, nomeLoja, item, quantidade);
+    public CupomVenda cadastroVenda(String valor, Cliente cliente, String item, String quantidade) {
+        String dataVenda = new Teste().dataAtual();
+        CupomVenda cupomVenda = new CupomVenda(dataVenda, valor, cliente, this, item, quantidade);
+        cupomVenda.exibirCupomVenda();
+        return cupomVenda;
+    }
+
+    public void exibeVenda(CupomVenda cupomVenda) {
         cupomVenda.exibirCupomVenda();
     }
 }
