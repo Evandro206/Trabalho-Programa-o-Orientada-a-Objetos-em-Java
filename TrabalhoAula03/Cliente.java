@@ -8,7 +8,7 @@ public class Cliente {
 	private String cpfCnpjCliente;
 
     // Contador de clientes
-    public static int codigoCliente = 1;
+    public static int codigoCliente = 0;
     
     // Método criador
     public Cliente(String nomeCliente, String dataCadastroCliente, String cpfCnpjCliente) {
