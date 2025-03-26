@@ -53,7 +53,6 @@ public class Caixa {
                                 Cliente novoCliente = Cliente.cadastrarCliente(scanner);
                                 if (novoCliente != null) {
                                     lojaSelecionada.adicionarCliente(novoCliente);
-                                    System.out.println("Cliente cadastrado com sucesso!");
                                 } else {
                                     System.out.println("Falha ao cadastrar cliente.");
                                 }
