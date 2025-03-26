@@ -45,4 +45,19 @@ public class Item {
     public void setquatiProduto(int quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
     }
+
+    // Método get para quantidade de produtos
+    public int getQuantidadeProduto() {
+        return quantidadeProduto;
+    }
+
+    // Método get para nome do produto
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    // Método get para valor do produto
+    public float getValorProduto() {
+        return valorProduto;
+    }
 }

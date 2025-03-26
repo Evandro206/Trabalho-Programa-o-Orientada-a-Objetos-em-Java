@@ -1,12 +1,14 @@
 package TrabalhoAula03;
 
+import java.util.Scanner;
+
 public class Loja {
 
     // Atributos
-    String nomeLoja;
-    String cnpjLoja;
-    String razaoSocialLoja;
-    String enderecoLoja;
+    public String nomeLoja;
+    public String cnpjLoja;
+    public String razaoSocialLoja;
+    public String enderecoLoja;
 
     // Contador de lojas
     public static int codigoLoja = 0;
@@ -21,14 +23,43 @@ public class Loja {
         codigoLoja++;
     }
 
+    // Método para cadastrar uma loja
+    public static Loja cadastrarLoja(Scanner scanner) {
+        System.out.println("====== Cadastro de Loja ======");
+    
+        System.out.println("Digite o nome da loja:");
+        String nomeLoja = scanner.nextLine();
+    
+        System.out.println("Digite o CNPJ da loja:");
+        String cnpjLoja = scanner.nextLine();
+        while (!ValidaDocumento.cnpjValido(cnpjLoja)) {
+            System.out.println("CNPJ inválido! Digite um CNPJ válido:");
+            cnpjLoja = scanner.nextLine();
+        }
+    
+        System.out.println("Digite a razão social da loja:");
+        String razaoSocialLoja = scanner.nextLine();
+    
+        System.out.println("Digite o endereço da loja:");
+        String enderecoLoja = scanner.nextLine();
+    
+        Loja loja = new Loja(nomeLoja, cnpjLoja, razaoSocialLoja, enderecoLoja);
+        System.out.println("Loja cadastrada com sucesso!");
+        return loja;
+    }
+
+    // método get para o nome da loja
+    public String getNomeLoja() {
+        return nomeLoja;
+    }
     // Método para exibir informações sobre a loja
     public void exibirLoja() {
-        System.out.println("------ Informações Loja ------");
-        System.out.println("Nome da loja: " + nomeLoja);
-        System.out.println("CNPJ da loja: " + cnpjLoja);
-        System.out.println("Razão Social da loja: " + razaoSocialLoja);
-        System.out.println("Endereço da loja: " + enderecoLoja);
-        System.out.println("Código da loja: " + codigoLoja);
+        System.out.println("====== Informações Loja ======");
+        System.out.println(String.format("Nome: " + nomeLoja));
+        System.out.println(String.format("Código: " + codigoLoja));
+        System.out.println(String.format("CNPJ: " + cnpjLoja));
+        System.out.println(String.format("Razão Social: " + razaoSocialLoja));
+        System.out.println(String.format("Endereço: " + enderecoLoja));
     }
 
     // Método para a Loja realizar uma consulta de um item
@@ -52,14 +83,16 @@ public class Loja {
     }
 
     // Método para loja realizar uma venda
-    public void vendaItem(Item itemVerificado, int quantidade, Cliente cliente) {
-        
+    public void vendaItem(Cliente cliente, Loja loja) {
+        String dataVenda = Caixa.dataAtual();
+        CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, cliente.carrinho);
+        cupomVenda.exibirCupomVenda();
     }
 
     // Método para a Loja realizar um cadastro de venda
-    public CupomVenda cadastroVenda(String valor, Cliente cliente, String item, String quantidade) {
-        String dataVenda = new Teste().dataAtual();
-        CupomVenda cupomVenda = new CupomVenda(dataVenda, valor, cliente, this, item, quantidade);
+    public CupomVenda cadastroVenda(Cliente cliente, Loja loja, Carrinho carrinho) {
+        String dataVenda = Caixa.dataAtual();
+        CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, carrinho);
         cupomVenda.exibirCupomVenda();
         return cupomVenda;
     }
