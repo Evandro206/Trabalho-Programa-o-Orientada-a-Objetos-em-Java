@@ -2,6 +2,22 @@ package TrabalhoAula03;
 
 public class ValidaDocumento {
 
+    public static boolean cpfCnpj(String documento) {
+        if (documento == null || documento.isEmpty()) {
+            return false;
+        }
+        // Remove todos os caracteres não numéricos
+        documento = documento.replaceAll("\\D", "");
+        if (documento.length() == 11) {
+            // É um CPF
+            return cpfValido(documento);
+        } else if (documento.length() == 14) {
+            return cnpjValido(documento);
+        } else {
+            return false;
+        }
+    }
+
     public static boolean cpfValido(String cpf) {
         if (cpf == null) {
             return false;

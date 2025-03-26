@@ -61,4 +61,8 @@ public class Carrinho {
     public float getValorTotal() {
         return valorTotal;
     }
+
+    public boolean estaVazio() {
+        return itensCarrinho.isEmpty();
+    }
 }
