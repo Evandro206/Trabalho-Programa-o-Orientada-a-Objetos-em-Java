@@ -1,5 +1,7 @@
 package TrabalhoAula03;
 
+import java.util.Scanner;
+
 public class Loja {
 
     // Atributos
@@ -21,6 +23,35 @@ public class Loja {
         codigoLoja++;
     }
 
+    // Método para cadastrar uma loja
+    public static Loja cadastrarLoja(Scanner scanner) {
+        System.out.println("====== Cadastro de Loja ======");
+    
+        System.out.println("Digite o nome da loja:");
+        String nomeLoja = scanner.nextLine();
+    
+        System.out.println("Digite o CNPJ da loja:");
+        String cnpjLoja = scanner.nextLine();
+        while (!ValidaDocumento.cnpjValido(cnpjLoja)) {
+            System.out.println("CNPJ inválido! Digite um CNPJ válido:");
+            cnpjLoja = scanner.nextLine();
+        }
+    
+        System.out.println("Digite a razão social da loja:");
+        String razaoSocialLoja = scanner.nextLine();
+    
+        System.out.println("Digite o endereço da loja:");
+        String enderecoLoja = scanner.nextLine();
+    
+        Loja loja = new Loja(nomeLoja, cnpjLoja, razaoSocialLoja, enderecoLoja);
+        System.out.println("Loja cadastrada com sucesso!");
+        return loja;
+    }
+
+    // método get para o nome da loja
+    public String getNomeLoja() {
+        return nomeLoja;
+    }
     // Método para exibir informações sobre a loja
     public void exibirLoja() {
         System.out.println("====== Informações Loja ======");
@@ -52,15 +83,15 @@ public class Loja {
     }
 
     // Método para loja realizar uma venda
-    public void vendaItem(Cliente cliente, Loja loja, Carrinho carrinho) {
-        String dataVenda = new Teste().dataAtual();
-        CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, carrinho);
+    public void vendaItem(Cliente cliente, Loja loja) {
+        String dataVenda = Caixa.dataAtual();
+        CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, cliente.carrinho);
         cupomVenda.exibirCupomVenda();
     }
 
     // Método para a Loja realizar um cadastro de venda
     public CupomVenda cadastroVenda(Cliente cliente, Loja loja, Carrinho carrinho) {
-        String dataVenda = new Teste().dataAtual();
+        String dataVenda = Caixa.dataAtual();
         CupomVenda cupomVenda = new CupomVenda(dataVenda, cliente, loja, carrinho);
         cupomVenda.exibirCupomVenda();
         return cupomVenda;

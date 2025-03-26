@@ -33,8 +33,8 @@ public class Cliente {
     }
 
     // Método para o cliente realizar uma compra
-    public void comprar(Item itemVerificado, int quantidade, Loja loja, Carrinho carrinho){
-        
+    public void comprar(Cliente cliente, Loja loja){
+        loja.vendaItem(cliente, loja);
     }
 
     // Método para o cliente criar um carrinho
