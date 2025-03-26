@@ -45,5 +45,3 @@ public class CupomVenda {
         System.out.println("Volte sempre!");
     }
 }
-
-
