@@ -113,10 +113,12 @@ public class Loja {
         cupomVenda.exibirCupomVenda();
     }
 
+    // Método para adicionar um cliente a loja
     public void adicionarCliente(Cliente cliente) {
         clientes.add(cliente);
     }
 
+    // Método para adicionar varios clientes a loja
     public void adicionarClientes(ArrayList<Cliente> clientesrecebidos) {
         ArrayList<Cliente> copy = new ArrayList<>(clientesrecebidos);
         for (Cliente cliente : copy) {
@@ -124,10 +126,12 @@ public class Loja {
         }
     }
 
+    // Método get para lista de clientes da loja
     public List<Cliente> getClientes() {
         return clientes;
     }
 
+    // Método para localizar cliente por cpf
     public Cliente buscarClientePorCPF(String cpf) {
         for (Cliente cliente : clientes) {
             if (cliente.getCpfCliente().equals(cpf)) {

@@ -46,11 +46,9 @@ public class Caixa {
 
                     Loja lojaSelecionada = null;
                     if (escolha.equals("1")) {
-                        // Método já implementado para seleção por índice
                         lojaSelecionada = selecionarLoja();
                         ;
                     } else if (escolha.equals("2")) {
-                        // Método já implementado para seleção por CNPJ
                         lojaSelecionada = selecionarLojaPorCNPJ();
                     } else {
                         System.out.println("Opção inválida!");
@@ -89,19 +87,15 @@ public class Caixa {
                                                 continuar2 = perguntarContinuar();
                                                 break;
                                             case "3":
-                                                System.out
-                                                        .println("Digite o CPF/CNPJ do cliente que deseja selecionar:");
+                                                System.out.println("Digite o CPF/CNPJ do cliente que deseja selecionar:");
                                                 String cpfPesquisa = scanner.nextLine().trim();
                                                 if (cpfPesquisa.isEmpty()) {
-                                                    System.out
-                                                            .println(
-                                                                    "CPF/CNPJ inválido. Por favor, insira um CPF/CNPJ válido.");
+                                                    System.out.println("CPF/CNPJ inválido. Por favor, insira um CPF/CNPJ válido.");
                                                 } else {
-                                                    Cliente clienteEncontrado = lojaSelecionada
-                                                            .buscarClientePorCPF(cpfPesquisa);
+                                                    Cliente clienteEncontrado = lojaSelecionada.buscarClientePorCPF(cpfPesquisa);
                                                     if (clienteEncontrado != null) {
-                                                        System.out.println("Cliente selecionado: "
-                                                                + clienteEncontrado.getNomeCliente());
+                                                        System.out.println("Cliente selecionado: " + clienteEncontrado.getNomeCliente());
+                                                        // Interface Cliente
                                                         while (continuar4) {
                                                             oqueFazer4 = interfaceDoCliente();
                                                             switch (oqueFazer4) {
@@ -110,11 +104,9 @@ public class Caixa {
                                                                     for (Item item : itens) {
                                                                         System.out.println(item.getNomeItem());
                                                                     }
-                                                                    System.out
-                                                                            .println("Qual item vc deseja consultar: ");
+                                                                    System.out.println("Qual item vc deseja consultar: ");
                                                                     String itemconsultar = scanner.nextLine();
-                                                                    clienteEncontrado.consultaItem(itemconsultar,
-                                                                            itens);
+                                                                    clienteEncontrado.consultaItem(itemconsultar, itens);
                                                                     oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "2":
@@ -130,8 +122,7 @@ public class Caixa {
                                                                     String itemremover = scanner.nextLine();
                                                                     System.out.println("Quantidade: ");
                                                                     int quantidade2 = scanner.nextInt();
-                                                                    clienteEncontrado.removerItemCarrinho(itemremover,
-                                                                            quantidade2);
+                                                                    clienteEncontrado.removerItemCarrinho(itemremover, quantidade2);
                                                                     oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "4":
@@ -159,8 +150,7 @@ public class Caixa {
                                                             }
                                                         }
                                                     } else {
-                                                        System.out.println(
-                                                                "Nenhum cliente encontrado com o CPF informado.");
+                                                        System.out.println("Nenhum cliente encontrado com o CPF informado.");
                                                     }
                                                 }
                                                 continuar2 = perguntarContinuar();
@@ -201,6 +191,7 @@ public class Caixa {
                                                 for (Item item : itens) {
                                                     if (item.getNomeItem().equals(itemadicionar)) {
                                                         System.out.println("Item selecionado: " + itemadicionar);
+                                                        // Interface Item
                                                         while (continuar6) {
                                                             oqueFazer6 = interfaceDoItem();
                                                             switch (oqueFazer6) {
@@ -209,29 +200,25 @@ public class Caixa {
                                                                     continuar6 = perguntarContinuar();
                                                                     break;
                                                                 case "2":
-                                                                    System.out.println(
-                                                                            "Digite qual a quantidade que deseja adicionar: ");
+                                                                    System.out.println("Digite qual a quantidade que deseja adicionar: ");
                                                                     int quantidadeAdicionar = scanner.nextInt();
                                                                     item.entraProduto(quantidadeAdicionar);
                                                                     continuar6 = perguntarContinuar();
                                                                     break;
                                                                 case "3":
-                                                                    System.out.println(
-                                                                            "Digite qual a quantidade que deseja remover: ");
+                                                                    System.out.println("Digite qual a quantidade que deseja remover: ");
                                                                     int quantidadeRemover = scanner.nextInt();
                                                                     item.saidaProduto(quantidadeRemover);
                                                                     continuar6 = perguntarContinuar();
                                                                     break;
                                                                 case "4":
-                                                                    System.out.println(
-                                                                            "Digite qual a quantidade que deseja definir: ");
+                                                                    System.out.println("Digite qual a quantidade que deseja definir: ");
                                                                     int quantidadeDefinir = scanner.nextInt();
                                                                     item.setquatidadeProduto(quantidadeDefinir);
                                                                     continuar6 = perguntarContinuar();
                                                                     break;
                                                                 case "5":
-                                                                    System.out.println(
-                                                                            "Digite qual o valor que deseja definir: ");
+                                                                    System.out.println("Digite qual o valor que deseja definir: ");
                                                                     float valorDefinir = scanner.nextFloat();
                                                                     item.setPrecoItem(valorDefinir);
                                                                     continuar6 = perguntarContinuar();
@@ -317,6 +304,7 @@ public class Caixa {
         }
     }
 
+    // Método para retornar a lista de itens cadastrados no sistema
     public static ArrayList<Item> getItens() {
         return itens;
     }
@@ -333,8 +321,8 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir a interface da Loja
     public static String interfaceLoja() {
-
         System.out.println("=== Bem vindo a interface da Loja ===");
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Ir para menu de clientes");
@@ -343,7 +331,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
-    // Método para exibir menu de Cliente
+    // Método para exibir o menu do Cliente
     public static String exibirMenuCliente() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar Cliente");
@@ -354,6 +342,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir a Interface do Cliente
     public static String interfaceDoCliente() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Consultar item");
@@ -367,6 +356,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir o Menu do Item
     public static String exibirMenuItem() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar Item");
@@ -377,6 +367,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir a Interface do Item
     public static String interfaceDoItem() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Exibir item");

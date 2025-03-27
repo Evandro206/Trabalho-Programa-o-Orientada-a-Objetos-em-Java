@@ -102,6 +102,7 @@ public class Cliente {
         return cpfCnpjCliente;
     }
 
+    // Método para obter o nome do Cliente
     public String getNomeCliente() {
         return nomeCliente;
     }

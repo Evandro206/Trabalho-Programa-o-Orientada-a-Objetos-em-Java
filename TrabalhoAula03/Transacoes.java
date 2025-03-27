@@ -12,7 +12,7 @@ public class Transacoes {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    
+    // Método para gerenciar transação
     public Transacoes(float valorTotalrecebido) {
         valorTotal = valorTotalrecebido;
         float desconto = 0.95f;
@@ -45,18 +45,22 @@ public class Transacoes {
         }
     }
 
+    // Método get para valor pago
     public float getValorPago() {
         return valorPago;
     }
 
+    // Método get para troco
     public float getTroco() {
         return troco;
     }
 
+    // Método get para valor da compra
     public float getValorTotal() {
         return valorTotal;
     }
 
+    // Método get para forma de pagamento
     public String getMetodoPagamento() {
         return metodoPagamento;
     }
