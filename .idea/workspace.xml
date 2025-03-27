@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f96c169d-7f6a-4833-b63d-d9ba9a4c8309" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TrabalhoAula03/Caixa.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoAula03/Caixa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho-Programa-o-Orientada-a-Objetos-em-Java/TrabalhoAula03/Caixa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trabalho-Programa-o-Orientada-a-Objetos-em-Java/TrabalhoAula03/Caixa.class" afterDir="false" />
-    </list>
+    <list default="true" id="f96c169d-7f6a-4833-b63d-d9ba9a4c8309" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,22 +24,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Caixa.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/evand/OneDrive/Programação/Trabalho-Programa-o-Orientada-a-Objetos-em-Java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Caixa.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/evand/OneDrive/Programação/Trabalho-Programa-o-Orientada-a-Objetos-em-Java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -120,6 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1743098701505</updated>
       <workItem from="1743098703087" duration="1982000" />
+      <workItem from="1743100948705" duration="104000" />
     </task>
     <servers />
   </component>
