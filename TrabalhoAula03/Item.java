@@ -1,5 +1,7 @@
 package TrabalhoAula03;
 
+import java.util.Scanner;
+
 public class Item {
     
     // Atributos
@@ -18,8 +20,27 @@ public class Item {
         codigoProduto++;
     }
 
+    public static Item cadastrarItem(Scanner scanner) {
+        String nomeItem;
+        int quantidadeItem;
+        float precoItem;
+        System.out.print("Digite o nome do produto: ");
+        nomeItem = scanner.nextLine();
+        System.out.print("Digite a quantidade do produto: ");
+        quantidadeItem = scanner.nextInt();
+        System.out.print("Digite o preco do produto: ");
+        precoItem = scanner.nextFloat();
+        return new Item(nomeItem,quantidadeItem, precoItem);
+    }
+
+    // Método get para preco
     public float getPrecoItem() {
         return valorProduto;
+    }
+
+    // Método get para nome
+    public String getNomeItem() {
+        return nomeProduto;
     }
 
     // Método para exibir o item
@@ -42,8 +63,13 @@ public class Item {
     }
 
     // Método set para quantidade de produtos
-    public void setquatiProduto(int quantidadeProduto) {
+    public void setquatidadeProduto(int quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
+    }
+
+    // Método set para preco do produto
+    public void setPrecoItem(float valorProduto) {
+        this.valorProduto = valorProduto;
     }
 
     // Método get para quantidade de produtos
