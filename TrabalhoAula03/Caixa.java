@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Caixa {
+public class Caixa{
 
     // Declaração do Scanner como variável de instância
     private static final Scanner scanner = new Scanner(System.in); // Scanner para leitura de dados
