@@ -24,7 +24,9 @@ public class Testes {
         clientesTeste = new ArrayList<>();
 
         Cliente cliente1 = new Cliente("Cliente1", "01/01/2001", "111.111.111-11");
+        cliente1.criarCarrinho();
         Cliente cliente2 = new Cliente("Cliente2", "02/02/2002", "06.990.590/0001-23");
+        cliente2.criarCarrinho();
         clientesTeste.add(cliente1);
         clientesTeste.add(cliente2);
         return clientesTeste;

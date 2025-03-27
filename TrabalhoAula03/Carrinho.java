@@ -24,6 +24,7 @@ public class Carrinho {
     public void adicionarItem(Item item, int quantidade) {
         this.itensCarrinho.add(new Informacao(item, quantidade));
         valorTotal += (item.getPrecoItem() * quantidade);
+        quantidadeItens += quantidade;
     }
 
     // Método para remover um item do carrinho
@@ -43,6 +44,7 @@ public class Carrinho {
                 itensCarrinho.remove(indice);
             }
         }
+        quantidadeItens -= quantidade;
     }
 
     // Método para limpar o carrinho

@@ -34,7 +34,6 @@ public class Transacoes {
             System.out.println("Pagamento insuficiente! Falta: " + Math.abs(this.troco));
         } else {
             System.out.println("Pagamento realizado com sucesso.");
-            System.out.println("Troco: " + this.troco);
         }
     }
 

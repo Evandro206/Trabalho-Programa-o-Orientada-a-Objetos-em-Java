@@ -109,6 +109,7 @@ public class Caixa {
                                                                     System.out.println("Qual item vc deseja consultar: ");
                                                                     String itemconsultar = scanner.nextLine();
                                                                     clienteEncontrado.consultaItem(itemconsultar, itens);
+                                                                    oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "2":
                                                                     System.out.println("Qual item vc deseja adicionar: ");
@@ -116,6 +117,7 @@ public class Caixa {
                                                                     System.out.println("Quantidade: ");
                                                                     int quantidade = scanner.nextInt();
                                                                     clienteEncontrado.adicionarItemCarrinho(itemadicionar, quantidade);
+                                                                    oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "3":
                                                                     System.out.println("Qual item vc deseja remover: ");
@@ -123,15 +125,19 @@ public class Caixa {
                                                                     System.out.println("Quantidade: ");
                                                                     int quantidade2 = scanner.nextInt();
                                                                     clienteEncontrado.removerItemCarrinho(itemremover, quantidade2);
+                                                                    oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "4":
                                                                     clienteEncontrado.limparCarrinho();
+                                                                    oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "5":
                                                                     clienteEncontrado.exibirCarrinho();
+                                                                    oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "6":
                                                                     clienteEncontrado.finalizarCompra(lojaSelecionada);
+                                                                    oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "7":
                                                                     System.out.println("Voltando ao menu anterior...");
@@ -283,11 +289,23 @@ public class Caixa {
 
     public static String exibirMenuItem() {
         System.out.println("Escolha uma opção:");
-        System.out.println("1 - Cadastrar Cliente");
-        System.out.println("2 - Listar Clientes");
-        System.out.println("3 - Selecionar Cliente");
+        System.out.println("1 - Cadastrar Item");
+        System.out.println("2 - Listar Itens");
+        System.out.println("3 - Selecionar Item");
         System.out.println("4 - Voltar ao Menu Anterior");
         System.out.println("5 - Sair");
+        return scanner.nextLine();
+    }
+
+    public static String interfaceDoItem() {
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Exibir item");
+        System.out.println("2 - Adicionar item");
+        System.out.println("3 - Remover item");
+        System.out.println("4 - Editar quantidade do item");
+        System.out.println("5 - Editar valor do item");
+        System.out.println("6 - Voltar ao Menu Anterior");
+        System.out.println("7 - Sair");
         return scanner.nextLine();
     }
 

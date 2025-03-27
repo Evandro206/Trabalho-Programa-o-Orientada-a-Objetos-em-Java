@@ -52,6 +52,11 @@ public class Item {
         this.quantidadeProduto = quantidadeProduto;
     }
 
+    // Método set para preco do produto
+    public void setPrecoItem(float valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
     // Método get para quantidade de produtos
     public int getQuantidadeProduto() {
         return quantidadeProduto;
