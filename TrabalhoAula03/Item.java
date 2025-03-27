@@ -18,8 +18,14 @@ public class Item {
         codigoProduto++;
     }
 
+    // Método get para preco
     public float getPrecoItem() {
         return valorProduto;
+    }
+
+    // Método get para nome
+    public String getNomeItem() {
+        return nomeProduto;
     }
 
     // Método para exibir o item

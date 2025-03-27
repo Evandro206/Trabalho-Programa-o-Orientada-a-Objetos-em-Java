@@ -10,24 +10,33 @@ public class Caixa {
     // Declaração do Scanner como variável de instância
     private static final Scanner scanner = new Scanner(System.in); // Scanner para leitura de dados
     private static ArrayList<Loja> lojas = new ArrayList<>(); // Lista de lojas
-    private static boolean continuar = true; // Variável para controlar o loop
+    private static ArrayList<Cliente> clientes = new ArrayList<>(); // Lista de Clientes
+    private static ArrayList<Item> itens = new ArrayList<>(); // Lista de itens
+    private static boolean continuar1 = true; // Variável para controlar o loop
+    private static boolean continuar2 = true; // Variável para controlar o loop
+    private static boolean continuar3 = true; // Variável para controlar o loop
+    private static boolean continuar4 = true; // Variável para controlar o loop
+    private static boolean continuar5 = true; // Variável para controlar o loop
 
     public static void main(String[] args) {
-        lojas.addAll(Testes.main(new String[0]));
-        String oqueFazer;
-        while (continuar) {
-            oqueFazer = exibirMenuLoja();
-            switch (oqueFazer) {
+        lojas.addAll(Testes.LojasTeste(new String[0]));
+        clientes.addAll(Testes.ClientesTeste(new String[0]));
+        itens.addAll(Testes.ItensTeste(new String[0]));
+        String oqueFazer1, oqueFazer2, oqueFazer3, oqueFazer4, oqueFazer5;
+        // Menu Loja
+        while (continuar1) {
+            oqueFazer1 = exibirMenuLoja();
+            switch (oqueFazer1) {
                 case "1":
                     lojas.add(Loja.cadastrarLoja(scanner));
-                    continuar = perguntarContinuar();
+                    continuar1 = perguntarContinuar();
                     break;
                 case "2":
                     System.out.println("====== Lista de Lojas ======");
                     for (Loja loja : lojas) {
                         loja.exibirLoja();
                     }
-                    continuar = perguntarContinuar();
+                    continuar1 = perguntarContinuar();
                     break;
                 case "3":
                     System.out.println("Você deseja selecionar a loja pelo Índice ou pelo CNPJ?");
@@ -46,47 +55,141 @@ public class Caixa {
                         System.out.println("Opção inválida!");
                     }
                     if (lojaSelecionada != null) {
-                        System.out.println("=== Bem vindo ao caixa da loja " + lojaSelecionada.getNomeLoja());
-                        oqueFazer = exibirMenuCliente();
-                        switch (oqueFazer) {
-                            case "1":
-                                Cliente novoCliente = Cliente.cadastrarCliente(scanner);
-                                if (novoCliente != null) {
-                                    lojaSelecionada.adicionarCliente(novoCliente);
-                                } else {
-                                    System.out.println("Falha ao cadastrar cliente.");
-                                }
-                                break;
-                            case "2":
-                                System.out.println("====== Lista de Clientes ======");
-                                for (Cliente cliente : lojaSelecionada.getClientes()) {
-                                    cliente.exibirCliente();
-                                }
-                                break;
-                            case "3":
-                                System.out.println("Digite o CPF do cliente que deseja selecionar:");
-                                String cpfPesquisa = scanner.nextLine().trim();
-                                Cliente clienteEncontrado = lojaSelecionada.buscarClientePorCPF(cpfPesquisa);
-                                if (clienteEncontrado != null) {
-                                    System.out.println("Cliente selecionado: " + clienteEncontrado.getNomeCliente());
-                                } else {
-                                    System.out.println("Nenhum cliente encontrado com o CPF informado.");
-                                }
-                                break;
-                            case "4":
-                                System.out.println("Voltando ao menu anterior...");
-                                return;
-                            case "5":
-                                System.out.println("Saindo...");
-                                scanner.close();
-                                System.exit(0);
-                                break;
-                            default:
-                                System.out.println("Opção inválida!");
-                                break;
+                        System.out.println("=== Bem vindo ao caixa da loja " + lojaSelecionada.getNomeLoja() + " ===");
+                        lojaSelecionada.adicionarClientes(clientes);
+                        // Interface Loja
+                        while (continuar2) {
+                            oqueFazer2 = interfaceLoja();
+                            switch (oqueFazer2) {
+                                case "1":
+                                    // Menu Cliente
+                                    while (continuar3) {
+                                        oqueFazer3 = exibirMenuCliente();
+                                        switch (oqueFazer3) {
+                                            case "1":
+                                                Cliente novoCliente = Cliente.cadastrarCliente(scanner);
+                                                if (novoCliente != null) {
+                                                    lojaSelecionada.adicionarCliente(novoCliente);
+                                                    novoCliente.criarCarrinho();
+                                                } else {
+                                                    System.out.println("Falha ao cadastrar cliente.");
+                                                }
+                                                continuar2 = perguntarContinuar();
+                                                break;
+                                            case "2":
+                                                System.out.println("====== Lista de Clientes ======");
+                                                if (lojaSelecionada.getClientes().isEmpty()) {
+                                                    System.out.println("Nenhum cliente cadastrado na loja!");
+                                                } else {
+                                                    for (Cliente cliente : lojaSelecionada.getClientes()) {
+                                                        cliente.exibirCliente();
+                                                    }
+                                                }
+                                                continuar2 = perguntarContinuar();
+                                                break;
+                                            case "3":
+                                                System.out.println("Digite o CPF/CNPJ do cliente que deseja selecionar:");
+                                                String cpfPesquisa = scanner.nextLine().trim();
+                                                if (cpfPesquisa.isEmpty()) {
+                                                    System.out
+                                                            .println("CPF/CNPJ inválido. Por favor, insira um CPF/CNPJ válido.");
+                                                } else {
+                                                    Cliente clienteEncontrado = lojaSelecionada
+                                                            .buscarClientePorCPF(cpfPesquisa);
+                                                    if (clienteEncontrado != null) {
+                                                        System.out.println("Cliente selecionado: " + clienteEncontrado.getNomeCliente());
+                                                        while (continuar4) {
+                                                            oqueFazer4 = interfaceDoCliente();
+                                                            switch (oqueFazer4) {
+                                                                case "1":
+                                                                    System.out.println("====== Lista de Itens ======");
+                                                                    for (Item item : itens) {
+                                                                        System.out.println(item.getNomeItem());
+                                                                    }
+                                                                    System.out.println("Qual item vc deseja consultar: ");
+                                                                    String itemconsultar = scanner.nextLine();
+                                                                    clienteEncontrado.consultaItem(itemconsultar, itens);
+                                                                    break;
+                                                                case "2":
+                                                                    System.out.println("Qual item vc deseja adicionar: ");
+                                                                    String itemadicionar = scanner.nextLine();
+                                                                    System.out.println("Quantidade: ");
+                                                                    int quantidade = scanner.nextInt();
+                                                                    clienteEncontrado.adicionarItemCarrinho(itemadicionar, quantidade);
+                                                                    break;
+                                                                case "3":
+                                                                    System.out.println("Qual item vc deseja remover: ");
+                                                                    String itemremover = scanner.nextLine();
+                                                                    System.out.println("Quantidade: ");
+                                                                    int quantidade2 = scanner.nextInt();
+                                                                    clienteEncontrado.removerItemCarrinho(itemremover, quantidade2);
+                                                                    break;
+                                                                case "4":
+                                                                    clienteEncontrado.limparCarrinho();
+                                                                    break;
+                                                                case "5":
+                                                                    clienteEncontrado.exibirCarrinho();
+                                                                    break;
+                                                                case "6":
+                                                                    clienteEncontrado.finalizarCompra(lojaSelecionada);
+                                                                    break;
+                                                                case "7":
+                                                                    System.out.println("Voltando ao menu anterior...");
+                                                                    continuar4 = false;
+                                                                    break;
+                                                                case "8":
+                                                                    System.out.println("Saindo...");
+                                                                    scanner.close();
+                                                                    System.exit(0);
+                                                                default:
+                                                                    break;
+                                                            }
+                                                        }
+                                                    } else {
+                                                        System.out.println(
+                                                                "Nenhum cliente encontrado com o CPF informado.");
+                                                    }
+                                                }
+                                                continuar2 = perguntarContinuar();
+                                                break;
+                                            case "4":
+                                                System.out.println("Voltando ao menu anterior...");
+                                                continuar2 = false;
+                                                break;
+                                            case "5":
+                                                System.out.println("Saindo...");
+                                                scanner.close();
+                                                System.exit(0);
+                                                break;
+                                            default:
+                                                System.out.println("Opção inválida!");
+                                                break;
+                                        }
+                                    }
+                                    break;
+                                case "2":
+                                    // Menu Item
+                                    while (continuar5) {
+                                        oqueFazer5 = exibirMenuItem();
+                                        switch (oqueFazer5) {
+                                            case "1":
+
+                                                break;
+
+                                            default:
+                                                break;
+                                        }
+                                    }
+                                case "3":
+                                    System.out.println("Saindo...");
+                                    scanner.close();
+                                    return;
+                                default:
+                                    break;
+                            }
                         }
                     }
-                    continuar = perguntarContinuar();
+                    continuar1 = perguntarContinuar();
                     break;
                 case "4":
                     System.out.println("Saindo...");
@@ -97,6 +200,7 @@ public class Caixa {
                     break;
             }
         }
+
     }
 
     // Método para obter data
@@ -127,7 +231,11 @@ public class Caixa {
         }
     }
 
-    // Método para exibir menu
+    public static ArrayList<Item> getItens() { 
+        return itens; 
+    }
+
+    // Método para exibir menu de Loja
     public static String exibirMenuLoja() {
         System.out.println("====== Sistema Unificado de Caixa ======");
         System.out.println("============== Bem Vindo! ==============");
@@ -139,7 +247,41 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    public static String interfaceLoja() {
+
+        System.out.println("=== Bem vindo a interface da Loja ===");
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Ir para menu de clientes");
+        System.out.println("2 - Ir para menu de itens");
+        System.out.println("3 - Sair");
+        return scanner.nextLine();
+    }
+
+    // Método para exibir menu de Cliente
     public static String exibirMenuCliente() {
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Cadastrar Cliente");
+        System.out.println("2 - Listar Clientes");
+        System.out.println("3 - Selecionar Cliente");
+        System.out.println("4 - Voltar ao Menu Anterior");
+        System.out.println("5 - Sair");
+        return scanner.nextLine();
+    }
+
+    public static String interfaceDoCliente() {
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Consultar item");
+        System.out.println("2 - Adicionar item ao carrinho");
+        System.out.println("3 - Remover item do carrinho");
+        System.out.println("4 - Limpar carrinho");
+        System.out.println("5 - exibir carrinho");
+        System.out.println("6 - Finalizar compra");
+        System.out.println("7 - Voltar ao Menu Anterior");
+        System.out.println("8 - Sair");
+        return scanner.nextLine();
+    }
+
+    public static String exibirMenuItem() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar Cliente");
         System.out.println("2 - Listar Clientes");

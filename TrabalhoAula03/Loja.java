@@ -72,12 +72,12 @@ public class Loja {
         System.out.println(String.format("Endereço: " + enderecoLoja));
     }
 
-    // Método para a Loja realizar uma consulta de um item
+    // Método para a Loja realizar uma consulta de um item 
     public void consultaItem(Item itemVerificado) {
         itemVerificado.exibirItem();
     }
 
-    // Método para a Loja realizar um aumento de estoque
+    // Método para a Loja realizar um aumento de estoque 
     public void entradaItem(Item itemVerificado, int quantidade) {
         itemVerificado.entraProduto(quantidade);
     }
@@ -117,6 +117,13 @@ public class Loja {
         clientes.add(cliente);
     }
 
+    public void adicionarClientes(ArrayList<Cliente> clientesrecebidos) {
+        ArrayList<Cliente> copy = new ArrayList<>(clientesrecebidos);
+        for (Cliente cliente : copy) {
+            clientes.add(cliente);
+        }
+    }
+
     public List<Cliente> getClientes() {
         return clientes;
     }
@@ -129,5 +136,4 @@ public class Loja {
         }
         return null;
     }
-
 }

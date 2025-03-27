@@ -1,5 +1,6 @@
 package TrabalhoAula03;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cliente {
@@ -21,6 +22,7 @@ public class Cliente {
         codigoCliente++;
     }
 
+    // Método para realizar cadastro de um cliente
     public static Cliente cadastrarCliente(Scanner scanner) {
     System.out.println("====== Cadastro de Cliente ======");
     System.out.println("Digite o nome do cliente:");
@@ -39,7 +41,6 @@ public class Cliente {
     return novoCliente;
 }
 
-
     // Método para exibir informações sobre o cliente
     public void exibirCliente() {
         System.out.println("====== Informações Cliente ======");
@@ -49,13 +50,13 @@ public class Cliente {
     }
 
     // Método para o cliente realizar uma consulta de um item
-    public void consultaItem(Item itemVerificado) {
-        itemVerificado.exibirItem();
-    }
-
-    // Método para o cliente realizar uma compra
-    public void comprar(Cliente cliente, Loja loja) {
-        loja.realizarVenda(cliente);
+    public void consultaItem(String itemVerificado, ArrayList<Item> itens) {
+        for (Item item : itens){
+            if (item.getNomeProduto().equals(itemVerificado)){
+                item.exibirItem();
+                return;
+            }
+        }
     }
 
     // Método para o cliente criar um carrinho
@@ -64,8 +65,12 @@ public class Cliente {
     }
 
     // Método para o cliente adicionar um item ao carrinho
-    public void adicionarItemCarrinho(Item item, int quantidade) {
-        carrinho.adicionarItem(item, quantidade);
+    public void adicionarItemCarrinho(String nomeitemadicionar, int quantidade) {
+        for (Item item : Caixa.getItens()) {
+            if (item.getNomeProduto().equals(nomeitemadicionar)) {
+                carrinho.adicionarItem(item, quantidade);
+            }
+        }
     }
 
     // Método para o cliente exibir o carrinho
@@ -74,8 +79,12 @@ public class Cliente {
     }
 
     // Método para o cliente remover um item do carrinho
-    public void removerItemCarrinho(Item item, int quantidade) {
-        carrinho.removerItem(item, quantidade);
+    public void removerItemCarrinho(String nomeitemadicionar, int quantidade) {
+        for (Item item : Caixa.getItens()) {
+            if (item.getNomeProduto().equals(nomeitemadicionar)) {
+                carrinho.removerItem(item, quantidade);
+            }
+        }
     }
 
     // Método para o cliente limpar o carrinho
