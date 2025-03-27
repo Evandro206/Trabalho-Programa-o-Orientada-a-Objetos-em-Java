@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f96c169d-7f6a-4833-b63d-d9ba9a4c8309" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TrabalhoAula03/Caixa.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoAula03/Caixa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho-Programa-o-Orientada-a-Objetos-em-Java/TrabalhoAula03/Caixa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trabalho-Programa-o-Orientada-a-Objetos-em-Java/TrabalhoAula03/Caixa.class" afterDir="false" />
-    </list>
+    <list default="true" id="f96c169d-7f6a-4833-b63d-d9ba9a4c8309" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743098701505</updated>
-      <workItem from="1743098703087" duration="1982000" />
+      <workItem from="1743098703087" duration="2100000" />
     </task>
     <servers />
   </component>
