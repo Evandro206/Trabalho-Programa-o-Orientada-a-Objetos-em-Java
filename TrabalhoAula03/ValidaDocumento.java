@@ -2,6 +2,7 @@ package TrabalhoAula03;
 
 public class ValidaDocumento {
 
+    // Método para diferenciar CPF e CNPJ
     public static boolean cpfCnpj(String documento) {
         if (documento == null || documento.isEmpty()) {
             return false;
@@ -9,7 +10,6 @@ public class ValidaDocumento {
         // Remove todos os caracteres não numéricos
         documento = documento.replaceAll("\\D", "");
         if (documento.length() == 11) {
-            // É um CPF
             return cpfValido(documento);
         } else if (documento.length() == 14) {
             return cnpjValido(documento);
@@ -18,6 +18,7 @@ public class ValidaDocumento {
         }
     }
 
+    // Método para validação CPF
     public static boolean cpfValido(String cpf) {
         if (cpf == null) {
             return false;
@@ -28,7 +29,7 @@ public class ValidaDocumento {
         if (cpf.length() != 11) {
             return false;
         }
-        // Verifica se todos os dígitos são iguais, o que é inválido (ex.: 11111111111)
+        // Verifica se todos os dígitos são iguais
         if (cpf.matches("(\\d)\\1{10}")) {
             return false;
         }
@@ -53,7 +54,7 @@ public class ValidaDocumento {
             }
             
             // Cálculo do segundo dígito verificador:
-            // Multiplica cada um dos 10 primeiros dígitos (incluindo o primeiro verificador) por pesos decrescentes de 11 a 2
+            // Multiplica cada um dos 10 primeiros dígitos por pesos decrescentes de 11 a 2
             sum = 0;
             for (int i = 0; i < 10; i++) {
                 sum += digits[i] * (11 - i);
@@ -66,6 +67,7 @@ public class ValidaDocumento {
         }
     }
 
+    // Método para validação CNPJ
     public static boolean cnpjValido(String cnpj) {
         if (cnpj == null) {
             return false;
@@ -76,7 +78,7 @@ public class ValidaDocumento {
         if (cnpj.length() != 14) {
             return false;
         }
-        // Verifica se todos os dígitos são iguais (ex.: 11111111111111), o que é inválido
+        // Verifica se todos os dígitos são iguais
         if (cnpj.matches("(\\d)\\1{13}")) {
             return false;
         }

@@ -64,6 +64,7 @@ public class Carrinho {
         return valorTotal;
     }
 
+    // Método para saber se carrinho esta vazio
     public boolean estaVazio() {
         return itensCarrinho.isEmpty();
     }

@@ -20,6 +20,7 @@ public class Item {
         codigoProduto++;
     }
 
+    // Método para cadastrar um item
     public static Item cadastrarItem(Scanner scanner) {
         String nomeItem;
         int quantidadeItem;
