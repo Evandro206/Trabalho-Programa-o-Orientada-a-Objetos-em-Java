@@ -7,17 +7,28 @@ public class Transacoes {
     // Atributos
     private float valorPago;
     private float troco;
-    private float valorTotal;
+    private static float valorTotal;
     private String metodoPagamento;
 
     private static final Scanner scanner = new Scanner(System.in);
 
     
-    public Transacoes(float valorTotal) {
-        this.valorTotal = valorTotal;
+    public Transacoes(float valorTotalrecebido) {
+        valorTotal = valorTotalrecebido;
+        float desconto = 0.95f;
  
         System.out.print("Digite o método de pagamento: ");
-        this.metodoPagamento = scanner.nextLine();
+        this.metodoPagamento = scanner.nextLine().trim().toUpperCase();
+        switch (metodoPagamento) {
+            case "PIX":
+                valorTotal = valorTotal * desconto;
+                break;
+            case "DINHEIRO":
+                valorTotal = valorTotal * desconto;
+                break;
+            default:
+                break;
+        }
 
         System.out.print("Digite o valor pago: ");
         try {
@@ -26,10 +37,7 @@ public class Transacoes {
             System.out.println("Valor informado inválido. Configurando valor pago como 0.");
             this.valorPago = 0;
         }
-
-        this.troco = this.valorPago - this.valorTotal;
-        
-
+        this.troco = this.valorPago - valorTotal;
         if (this.troco < 0) {
             System.out.println("Pagamento insuficiente! Falta: " + Math.abs(this.troco));
         } else {

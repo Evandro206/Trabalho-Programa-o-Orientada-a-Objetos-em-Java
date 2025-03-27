@@ -17,12 +17,13 @@ public class Caixa {
     private static boolean continuar3 = true; // Variável para controlar o loop
     private static boolean continuar4 = true; // Variável para controlar o loop
     private static boolean continuar5 = true; // Variável para controlar o loop
+    private static boolean continuar6 = true; // Variável para controlar o loop
 
     public static void main(String[] args) {
         lojas.addAll(Testes.LojasTeste(new String[0]));
         clientes.addAll(Testes.ClientesTeste(new String[0]));
         itens.addAll(Testes.ItensTeste(new String[0]));
-        String oqueFazer1, oqueFazer2, oqueFazer3, oqueFazer4, oqueFazer5;
+        String oqueFazer1, oqueFazer2, oqueFazer3, oqueFazer4, oqueFazer5, oqueFazer6;
         // Menu Loja
         while (continuar1) {
             oqueFazer1 = exibirMenuLoja();
@@ -88,16 +89,19 @@ public class Caixa {
                                                 continuar2 = perguntarContinuar();
                                                 break;
                                             case "3":
-                                                System.out.println("Digite o CPF/CNPJ do cliente que deseja selecionar:");
+                                                System.out
+                                                        .println("Digite o CPF/CNPJ do cliente que deseja selecionar:");
                                                 String cpfPesquisa = scanner.nextLine().trim();
                                                 if (cpfPesquisa.isEmpty()) {
                                                     System.out
-                                                            .println("CPF/CNPJ inválido. Por favor, insira um CPF/CNPJ válido.");
+                                                            .println(
+                                                                    "CPF/CNPJ inválido. Por favor, insira um CPF/CNPJ válido.");
                                                 } else {
                                                     Cliente clienteEncontrado = lojaSelecionada
                                                             .buscarClientePorCPF(cpfPesquisa);
                                                     if (clienteEncontrado != null) {
-                                                        System.out.println("Cliente selecionado: " + clienteEncontrado.getNomeCliente());
+                                                        System.out.println("Cliente selecionado: "
+                                                                + clienteEncontrado.getNomeCliente());
                                                         while (continuar4) {
                                                             oqueFazer4 = interfaceDoCliente();
                                                             switch (oqueFazer4) {
@@ -106,9 +110,11 @@ public class Caixa {
                                                                     for (Item item : itens) {
                                                                         System.out.println(item.getNomeItem());
                                                                     }
-                                                                    System.out.println("Qual item vc deseja consultar: ");
+                                                                    System.out
+                                                                            .println("Qual item vc deseja consultar: ");
                                                                     String itemconsultar = scanner.nextLine();
-                                                                    clienteEncontrado.consultaItem(itemconsultar, itens);
+                                                                    clienteEncontrado.consultaItem(itemconsultar,
+                                                                            itens);
                                                                     oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "2":
@@ -124,7 +130,8 @@ public class Caixa {
                                                                     String itemremover = scanner.nextLine();
                                                                     System.out.println("Quantidade: ");
                                                                     int quantidade2 = scanner.nextInt();
-                                                                    clienteEncontrado.removerItemCarrinho(itemremover, quantidade2);
+                                                                    clienteEncontrado.removerItemCarrinho(itemremover,
+                                                                            quantidade2);
                                                                     oqueFazer4 = interfaceDoCliente();
                                                                     break;
                                                                 case "4":
@@ -179,9 +186,83 @@ public class Caixa {
                                         oqueFazer5 = exibirMenuItem();
                                         switch (oqueFazer5) {
                                             case "1":
-
+                                                itens.add(Item.cadastrarItem(scanner));
+                                                continuar5 = perguntarContinuar();
                                                 break;
+                                            case "2":
+                                                for (Item item : itens) {
+                                                    System.out.println(item.getNomeItem());
+                                                }
+                                                continuar5 = perguntarContinuar();
+                                                break;
+                                            case "3":
+                                                System.out.println("Qual item deseja selecionar: ");
+                                                String itemadicionar = scanner.nextLine();
+                                                for (Item item : itens) {
+                                                    if (item.getNomeItem().equals(itemadicionar)) {
+                                                        System.out.println("Item selecionado: " + itemadicionar);
+                                                        while (continuar6) {
+                                                            oqueFazer6 = interfaceDoItem();
+                                                            switch (oqueFazer6) {
+                                                                case "1":
+                                                                    item.exibirItem();
+                                                                    continuar6 = perguntarContinuar();
+                                                                    break;
+                                                                case "2":
+                                                                    System.out.println(
+                                                                            "Digite qual a quantidade que deseja adicionar: ");
+                                                                    int quantidadeAdicionar = scanner.nextInt();
+                                                                    item.entraProduto(quantidadeAdicionar);
+                                                                    continuar6 = perguntarContinuar();
+                                                                    break;
+                                                                case "3":
+                                                                    System.out.println(
+                                                                            "Digite qual a quantidade que deseja remover: ");
+                                                                    int quantidadeRemover = scanner.nextInt();
+                                                                    item.saidaProduto(quantidadeRemover);
+                                                                    continuar6 = perguntarContinuar();
+                                                                    break;
+                                                                case "4":
+                                                                    System.out.println(
+                                                                            "Digite qual a quantidade que deseja definir: ");
+                                                                    int quantidadeDefinir = scanner.nextInt();
+                                                                    item.setquatidadeProduto(quantidadeDefinir);
+                                                                    continuar6 = perguntarContinuar();
+                                                                    break;
+                                                                case "5":
+                                                                    System.out.println(
+                                                                            "Digite qual o valor que deseja definir: ");
+                                                                    float valorDefinir = scanner.nextFloat();
+                                                                    item.setPrecoItem(valorDefinir);
+                                                                    continuar6 = perguntarContinuar();
+                                                                    break;
+                                                                case "6":
+                                                                    System.out.println("Voltando ao menu anterior...");
+                                                                    continuar6 = false;
+                                                                    break;
+                                                                case "7":
+                                                                    System.out.println("Saindo...");
+                                                                    scanner.close();
+                                                                    System.exit(0);
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
 
+                                                        }
+                                                    }
+                                                }
+                                                continuar5 = perguntarContinuar();
+                                                break;
+                                            case "4":
+                                                System.out.println("Voltando ao menu anterior...");
+                                                continuar5 = false;
+                                                break;
+                                            case "5":
+                                                System.out.println("Saindo...");
+                                                scanner.close();
+                                                System.exit(0);
+                                                break;
                                             default:
                                                 break;
                                         }
@@ -221,8 +302,7 @@ public class Caixa {
         while (true) {
             try {
                 System.out.println("Deseja continuar? (S/N)");
-                String simNao = scanner.nextLine().trim().toUpperCase(); // Remove espaços extras e transforma em
-                                                                         // maiúsculo
+                String simNao = scanner.nextLine().trim().toUpperCase(); 
                 if (simNao.equals("N")) {
                     return false;
                 } else if (simNao.equals("S")) {
@@ -230,15 +310,15 @@ public class Caixa {
                 } else {
                     System.out.println("Opção inválida! Digite 'S' ou 'N'.");
                 }
-            } catch (Exception e) { // Captura qualquer exceção inesperada
+            } catch (Exception e) { 
                 System.out.println("Erro inesperado: " + e.getMessage());
                 return false;
             }
         }
     }
 
-    public static ArrayList<Item> getItens() { 
-        return itens; 
+    public static ArrayList<Item> getItens() {
+        return itens;
     }
 
     // Método para exibir menu de Loja
@@ -300,8 +380,8 @@ public class Caixa {
     public static String interfaceDoItem() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Exibir item");
-        System.out.println("2 - Adicionar item");
-        System.out.println("3 - Remover item");
+        System.out.println("2 - Adicionar quantidade do item");
+        System.out.println("3 - Remover quantidade do item");
         System.out.println("4 - Editar quantidade do item");
         System.out.println("5 - Editar valor do item");
         System.out.println("6 - Voltar ao Menu Anterior");

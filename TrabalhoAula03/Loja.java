@@ -89,7 +89,7 @@ public class Loja {
 
     // Método para a Loja realizar uma alteração de quantidade de estoque
     public void setquatiItem(Item itemVerificado, int quantidade) {
-        itemVerificado.setquatiProduto(quantidade);
+        itemVerificado.setquatidadeProduto(quantidade);
     }
 
     // Método para loja realizar uma venda
