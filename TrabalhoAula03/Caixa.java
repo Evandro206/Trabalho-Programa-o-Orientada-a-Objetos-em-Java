@@ -56,6 +56,7 @@ public class Caixa {
                     if (lojaSelecionada != null) {
                         System.out.println("=== Bem vindo ao caixa da loja " + lojaSelecionada.getNomeLoja() + " ===");
                         lojaSelecionada.adicionarClientes(clientes);
+                        continuar2 = true;
                         // Interface Loja
                         while (continuar2) {
                             oqueFazer2 = interfaceLoja();
@@ -154,7 +155,6 @@ public class Caixa {
                                                         System.out.println("Nenhum cliente encontrado com o CPF informado.");
                                                     }
                                                 }
-                                                continuar3 = perguntarContinuar();
                                                 break;
                                             case "4":
                                                 System.out.println("Voltando ao menu anterior...");
@@ -172,6 +172,7 @@ public class Caixa {
                                     }
                                     break;
                                 case "2":
+                                    continuar5 = true;
                                     // Menu Item
                                     while (continuar5) {
                                         oqueFazer5 = exibirMenuItem();
@@ -240,7 +241,6 @@ public class Caixa {
                                                         }
                                                     }
                                                 }
-                                                continuar5 = perguntarContinuar();
                                                 break;
                                             case "4":
                                                 System.out.println("Voltando ao menu anterior...");
@@ -255,9 +255,12 @@ public class Caixa {
                                                 break;
                                         }
                                     }
-                                    continuar2 = perguntarContinuar();
                                     break;
                                 case "3":
+                                    System.out.println("Voltando ao menu anterior...");
+                                    continuar2 = false;
+                                    break;
+                                case "4":
                                     System.out.println("Saindo...");
                                     scanner.close();
                                     return;
@@ -330,7 +333,8 @@ public class Caixa {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Ir para menu de clientes");
         System.out.println("2 - Ir para menu de itens");
-        System.out.println("3 - Sair");
+        System.out.println("3 - Voltar ao menu anterior");
+        System.out.println("4 - Sair");
         return scanner.nextLine();
     }
 
