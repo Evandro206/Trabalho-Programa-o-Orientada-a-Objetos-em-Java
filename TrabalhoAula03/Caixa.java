@@ -47,7 +47,6 @@ public class Caixa {
                     Loja lojaSelecionada = null;
                     if (escolha.equals("1")) {
                         lojaSelecionada = selecionarLoja();
-                        ;
                     } else if (escolha.equals("2")) {
                         lojaSelecionada = selecionarLojaPorCNPJ();
                     } else {
