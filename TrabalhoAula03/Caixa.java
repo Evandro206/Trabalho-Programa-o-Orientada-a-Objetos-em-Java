@@ -62,6 +62,7 @@ public class Caixa {
                             switch (oqueFazer2) {
                                 case "1":
                                     // Menu Cliente
+                                    continuar3 = true;
                                     while (continuar3) {
                                         oqueFazer3 = exibirMenuCliente();
                                         switch (oqueFazer3) {
@@ -73,7 +74,7 @@ public class Caixa {
                                                 } else {
                                                     System.out.println("Falha ao cadastrar cliente.");
                                                 }
-                                                continuar2 = perguntarContinuar();
+                                                continuar3= perguntarContinuar();
                                                 break;
                                             case "2":
                                                 System.out.println("====== Lista de Clientes ======");
@@ -84,7 +85,7 @@ public class Caixa {
                                                         cliente.exibirCliente();
                                                     }
                                                 }
-                                                continuar2 = perguntarContinuar();
+                                                continuar3 = perguntarContinuar();
                                                 break;
                                             case "3":
                                                 System.out.println("Digite o CPF/CNPJ do cliente que deseja selecionar:");
@@ -107,7 +108,7 @@ public class Caixa {
                                                                     System.out.println("Qual item vc deseja consultar: ");
                                                                     String itemconsultar = scanner.nextLine();
                                                                     clienteEncontrado.consultaItem(itemconsultar, itens);
-                                                                    oqueFazer4 = interfaceDoCliente();
+                                                                    continuar4 = perguntarContinuar();
                                                                     break;
                                                                 case "2":
                                                                     System.out.println("Qual item vc deseja adicionar: ");
@@ -115,7 +116,7 @@ public class Caixa {
                                                                     System.out.println("Quantidade: ");
                                                                     int quantidade = scanner.nextInt();
                                                                     clienteEncontrado.adicionarItemCarrinho(itemadicionar, quantidade);
-                                                                    oqueFazer4 = interfaceDoCliente();
+                                                                    continuar4 = perguntarContinuar();
                                                                     break;
                                                                 case "3":
                                                                     System.out.println("Qual item vc deseja remover: ");
@@ -123,19 +124,19 @@ public class Caixa {
                                                                     System.out.println("Quantidade: ");
                                                                     int quantidade2 = scanner.nextInt();
                                                                     clienteEncontrado.removerItemCarrinho(itemremover, quantidade2);
-                                                                    oqueFazer4 = interfaceDoCliente();
+                                                                    continuar4 = perguntarContinuar();
                                                                     break;
                                                                 case "4":
                                                                     clienteEncontrado.limparCarrinho();
-                                                                    oqueFazer4 = interfaceDoCliente();
+                                                                    continuar4 = perguntarContinuar();
                                                                     break;
                                                                 case "5":
                                                                     clienteEncontrado.exibirCarrinho();
-                                                                    oqueFazer4 = interfaceDoCliente();
+                                                                    continuar4 = perguntarContinuar();
                                                                     break;
                                                                 case "6":
                                                                     clienteEncontrado.finalizarCompra(lojaSelecionada);
-                                                                    oqueFazer4 = interfaceDoCliente();
+                                                                    continuar4 = perguntarContinuar();
                                                                     break;
                                                                 case "7":
                                                                     System.out.println("Voltando ao menu anterior...");
@@ -153,11 +154,11 @@ public class Caixa {
                                                         System.out.println("Nenhum cliente encontrado com o CPF informado.");
                                                     }
                                                 }
-                                                continuar2 = perguntarContinuar();
+                                                continuar3 = perguntarContinuar();
                                                 break;
                                             case "4":
                                                 System.out.println("Voltando ao menu anterior...");
-                                                continuar2 = false;
+                                                continuar3 = false;
                                                 break;
                                             case "5":
                                                 System.out.println("Saindo...");
@@ -254,6 +255,8 @@ public class Caixa {
                                                 break;
                                         }
                                     }
+                                    continuar2 = perguntarContinuar();
+                                    break;
                                 case "3":
                                     System.out.println("Saindo...");
                                     scanner.close();
