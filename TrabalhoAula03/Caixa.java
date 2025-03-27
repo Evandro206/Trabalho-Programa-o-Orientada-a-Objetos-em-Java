@@ -95,6 +95,7 @@ public class Caixa {
                                                     Cliente clienteEncontrado = lojaSelecionada.buscarClientePorCPF(cpfPesquisa);
                                                     if (clienteEncontrado != null) {
                                                         System.out.println("Cliente selecionado: " + clienteEncontrado.getNomeCliente());
+                                                        // Interface Cliente
                                                         while (continuar4) {
                                                             oqueFazer4 = interfaceDoCliente();
                                                             switch (oqueFazer4) {
@@ -190,6 +191,7 @@ public class Caixa {
                                                 for (Item item : itens) {
                                                     if (item.getNomeItem().equals(itemadicionar)) {
                                                         System.out.println("Item selecionado: " + itemadicionar);
+                                                        // Interface Item
                                                         while (continuar6) {
                                                             oqueFazer6 = interfaceDoItem();
                                                             switch (oqueFazer6) {
@@ -302,6 +304,7 @@ public class Caixa {
         }
     }
 
+    // Método para retornar a lista de itens cadastrados no sistema
     public static ArrayList<Item> getItens() {
         return itens;
     }
@@ -318,8 +321,8 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir a interface da Loja
     public static String interfaceLoja() {
-
         System.out.println("=== Bem vindo a interface da Loja ===");
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Ir para menu de clientes");
@@ -328,7 +331,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
-    // Método para exibir menu de Cliente
+    // Método para exibir o menu do Cliente
     public static String exibirMenuCliente() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar Cliente");
@@ -339,6 +342,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir a Interface do Cliente
     public static String interfaceDoCliente() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Consultar item");
@@ -352,6 +356,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir o Menu do Item
     public static String exibirMenuItem() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar Item");
@@ -362,6 +367,7 @@ public class Caixa {
         return scanner.nextLine();
     }
 
+    // Método para exibir a Interface do Item
     public static String interfaceDoItem() {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Exibir item");
