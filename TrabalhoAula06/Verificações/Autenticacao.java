@@ -24,6 +24,7 @@ public class Autenticacao {
         }
         return false;
     }
+
     public static boolean validarCPF(String cpf) {
 
         if (cpf.length() != 11) {
