@@ -1,7 +1,6 @@
 package TrabalhoAula06;
 
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Responsaveis extends Funcionario {
     String senha;
