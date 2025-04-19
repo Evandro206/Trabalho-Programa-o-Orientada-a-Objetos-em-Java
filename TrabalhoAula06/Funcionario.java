@@ -31,4 +31,15 @@ public class Funcionario {
         System.out.println("CPF: " + this.cpf);
         System.out.println("Salário: " + this.salario);
     }
+
+    // Metodos getters
+    public String getNome(){
+        return nomeFuncionario;
+    }
+    public String getCpf(){
+        return cpf;
+    }
+    public float getSalario(){
+        return salario;
+    }
 }
