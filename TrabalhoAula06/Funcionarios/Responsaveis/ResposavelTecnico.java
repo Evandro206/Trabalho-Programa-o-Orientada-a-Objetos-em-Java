@@ -2,7 +2,7 @@ package TrabalhoAula06.Funcionarios.Responsaveis;
 
 import java.util.Scanner;
 
-import static TrabalhoAula06.Autenticacao.autenticar;
+import static TrabalhoAula06.Verificações.Autenticacao.autenticar;
 
 public class ResposavelTecnico extends Responsaveis {
     public boolean liberarProcedimento() {

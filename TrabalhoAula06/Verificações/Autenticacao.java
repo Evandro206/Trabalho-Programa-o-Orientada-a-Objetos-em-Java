@@ -1,4 +1,4 @@
-package TrabalhoAula06;
+package TrabalhoAula06.Verificações;
 
 import TrabalhoAula06.Funcionarios.Responsaveis.Responsaveis;
 

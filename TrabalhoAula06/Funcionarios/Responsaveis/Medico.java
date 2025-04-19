@@ -1,10 +1,10 @@
 package TrabalhoAula06.Funcionarios.Responsaveis;
 
-import TrabalhoAula06.Procedimento;
+import TrabalhoAula06.Verificações.Procedimento;
 
 import java.util.Scanner;
 
-import static TrabalhoAula06.Autenticacao.autenticar;
+import static TrabalhoAula06.Verificações.Autenticacao.autenticar;
 
 public class Medico extends Responsaveis {
 

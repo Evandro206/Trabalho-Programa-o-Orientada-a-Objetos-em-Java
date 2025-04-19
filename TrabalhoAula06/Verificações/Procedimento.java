@@ -1,4 +1,4 @@
-package TrabalhoAula06;
+package TrabalhoAula06.Verificações;
 
 public abstract class Procedimento {
 }
