@@ -1,5 +1,7 @@
 package TrabalhoAula06;
 
+import TrabalhoAula06.Funcionarios.Responsaveis.Responsaveis;
+
 import java.util.Scanner;
 
 public class Autenticacao {

@@ -1,4 +1,4 @@
-package TrabalhoAula06;
+package TrabalhoAula06.Funcionarios.Responsaveis;
 
 import java.util.Scanner;
 

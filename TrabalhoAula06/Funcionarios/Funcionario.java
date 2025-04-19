@@ -1,8 +1,8 @@
-package TrabalhoAula06;
+package TrabalhoAula06.Funcionarios;
 
 import java.util.Scanner;
 
-abstract class Funcionario {
+public abstract class Funcionario {
 
     // Atributos
     public String nomeFuncionario;

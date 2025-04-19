@@ -1,5 +1,7 @@
 package TrabalhoAula06;
 
+import TrabalhoAula06.Funcionarios.Responsaveis.ResposavelTecnico;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
