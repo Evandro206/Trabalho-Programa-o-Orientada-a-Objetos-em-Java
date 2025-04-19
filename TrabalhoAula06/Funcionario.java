@@ -2,7 +2,7 @@ package TrabalhoAula06;
 
 import java.util.Scanner;
 
-public class Funcionario {
+abstract class Funcionario {
 
     // Atributos
     public String nomeFuncionario;
@@ -13,7 +13,7 @@ public class Funcionario {
     public static int idFuncionario = 0;
 
     // Metodo criador
-    public Funcionario() {
+    public  Funcionario() {
         Scanner scanner = new Scanner(System.in);
         idFuncionario++;
         System.out.println("Digite o nome do funcionário");
