@@ -1,5 +1,7 @@
 package TrabalhoAula06;
 
+import TrabalhoAula06.Agendados.ProcedimentoCirurgico;
+import TrabalhoAula06.Agendados.ProcedimentoEstetico;
 import TrabalhoAula06.Funcionarios.Anestesista;
 import TrabalhoAula06.Funcionarios.Enfermeiro;
 import TrabalhoAula06.Funcionarios.Funcionario;
@@ -7,11 +9,17 @@ import TrabalhoAula06.Funcionarios.Responsaveis.Medico;
 import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Teste {
     public static void main(String[] args) {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
         ArrayList<Paciente> pacientes = new ArrayList<>();
+        ArrayList<ProcedimentoCirurgico> procedimentoCirurgicos = new ArrayList<>();
+        ArrayList<ProcedimentoEstetico> procedimentoEstetico = new ArrayList<>();
+        Medico m;
+        Paciente p;
+        Anestesista a;
 
         System.out.println("Cadastre o primeiro anestesista");
         funcionarios.add(new Anestesista());
@@ -23,5 +31,52 @@ public class Teste {
         funcionarios.add(new ResponsavelTecnico());
         System.out.println("Cadastre o primeiro Paciente");
         pacientes.add(new Paciente());
+
+        int opcao = 0;
+        while (opcao != 10){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Escolha uma opcao(: ");
+            System.out.println("Opcao 1: Cadastrar anestesista");
+            System.out.println("Opcao 2: Cadastrar Enfermeiro");
+            System.out.println("Opcao 3: Cadastrar Medico");
+            System.out.println("Opcao 4: Cadastrar Responsavel Tecnico");
+            System.out.println("Opcao 5: Cadastrar Paciente");
+            System.out.println("Opcao 6: Agendar Procedimento de Cirurgico");
+            System.out.println("Opcao 7: Agendar Procedimento de estetico");
+            System.out.println("Opcao 8: Agendar consulta");
+            System.out.println("Opcao 9: Liberar Procedimento de Cirurgico");
+            System.out.println("Opcao 10: Liberar Procedimento de estetica");
+            System.out.println("Opcao 11: Encerrar o programa");
+            opcao = sc.nextInt();
+            switch(opcao){
+                case 1:
+                    funcionarios.add(new Anestesista());
+                    break;
+                case 2:
+                    funcionarios.add(new Enfermeiro());
+                    break;
+                case 3:
+                    funcionarios.add(new Medico());
+                    break;
+                case 4:
+                    funcionarios.add(new ResponsavelTecnico());
+                    break;
+                case 5:
+                    pacientes.add(new Paciente());
+                    break;
+                case 6:
+                    m = ProcedimentoCirurgico.BuscaMedico(funcionarios);
+                    p = ProcedimentoCirurgico.BuscaPaciente(pacientes);
+                    a = ProcedimentoCirurgico.BuscaAnestesista(funcionarios);
+                    procedimentoCirurgicos.add(new ProcedimentoCirurgico(m,a,p));
+                    break;
+                case 7:
+                    m = ProcedimentoCirurgico.BuscaMedico(funcionarios);
+                    p = ProcedimentoCirurgico.BuscaPaciente(pacientes);
+                    a = ProcedimentoCirurgico.BuscaAnestesista(funcionarios);
+                    procedimentoEstetico.add(new ProcedimentoEstetico(m,a,p));
+                    break;
+            }
+        }
     }
 }
