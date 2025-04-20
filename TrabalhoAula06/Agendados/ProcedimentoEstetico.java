@@ -7,6 +7,6 @@ import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
 
 public class ProcedimentoEstetico extends Procedimento {
     public ProcedimentoEstetico(Medico m, Anestesista a){
-            super(m,a);
+        super();
     }
 }

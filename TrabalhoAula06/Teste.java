@@ -6,8 +6,6 @@ import TrabalhoAula06.Funcionarios.Funcionario;
 import TrabalhoAula06.Funcionarios.Responsaveis.Medico;
 import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 public class Teste {
@@ -25,7 +23,5 @@ public class Teste {
         funcionarios.add(new ResponsavelTecnico());
         System.out.println("Cadastre o primeiro Paciente");
         pacientes.add(new Paciente());
-
-
     }
 }

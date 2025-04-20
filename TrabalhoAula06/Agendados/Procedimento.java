@@ -6,7 +6,7 @@ import TrabalhoAula06.Funcionarios.Responsaveis.Responsaveis;
 import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
 import TrabalhoAula06.Paciente;
 
-public abstract class Procedimento {
+abstract class Procedimento {
     public Medico medico;
     public Anestesista anestesista;
     public Paciente paciente;
@@ -17,6 +17,10 @@ public abstract class Procedimento {
         anestesista = a;
         paciente = p;
         liberado = false;
+    }
+
+    public Procedimento() {
+
     }
 
     public void liberacao(){

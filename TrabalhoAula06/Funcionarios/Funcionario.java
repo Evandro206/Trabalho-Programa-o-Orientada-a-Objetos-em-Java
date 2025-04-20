@@ -20,7 +20,7 @@ public abstract class Funcionario {
         this.nomeFuncionario = scanner.nextLine();
         System.out.println("Digite o CPF ou CNPJ do funcionário:");
         this.cpf = scanner.nextLine();
-        System.out.println("Difite o salário do funcionário:");
+        System.out.println("Digite o salário do funcionário:");
         this.salario = scanner.nextFloat();
     }
 
