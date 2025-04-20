@@ -145,6 +145,7 @@ public class Teste {
                         ProcedimentoEstetico procedimentoliberado2 = ResponsavelTecnico.BuscaProcedimentoEstetico(procedimentoEsteticos);
                         tec.LiberaProcedimentoEstetico(procedimentoliberado2);
                     }
+                    
                     break;
             }
         }
