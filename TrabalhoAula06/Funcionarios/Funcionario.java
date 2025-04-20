@@ -10,7 +10,7 @@ public abstract class Funcionario {
     public float salario;
 
     // ID Funcionário
-    public static int idFuncionario = 0;
+    public int idFuncionario = 0;
 
     // Metodo criador
     public  Funcionario() {
@@ -32,14 +32,4 @@ public abstract class Funcionario {
         System.out.println("Salário: " + this.salario);
     }
 
-    // Metodos getters
-    public String getNome(){
-        return nomeFuncionario;
-    }
-    public String getCpf(){
-        return cpf;
-    }
-    public float getSalario(){
-        return salario;
-    }
 }

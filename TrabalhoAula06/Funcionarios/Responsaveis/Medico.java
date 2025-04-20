@@ -1,6 +1,5 @@
 package TrabalhoAula06.Funcionarios.Responsaveis;
 
-import TrabalhoAula06.Verificações.Procedimento;
 
 import java.util.Scanner;
 

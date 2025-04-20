@@ -9,6 +9,7 @@ public class Responsaveis extends Funcionario {
 
     public Responsaveis() {
         super();
+        setSenha();
     }
 
     public void setSenha() {
