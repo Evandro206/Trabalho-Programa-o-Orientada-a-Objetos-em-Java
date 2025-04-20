@@ -18,7 +18,7 @@ public class Teste {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
         ArrayList<Paciente> pacientes = new ArrayList<>();
         ArrayList<ProcedimentoCirurgico> procedimentoCirurgicos = new ArrayList<>();
-        ArrayList<ProcedimentoEstetico> procedimentoEstetico = new ArrayList<>();
+        ArrayList<ProcedimentoEstetico> procedimentoEsteticos = new ArrayList<>();
         ArrayList<Consulta> consultas = new ArrayList<>();
         Medico m;
         Paciente p;
@@ -39,7 +39,7 @@ public class Teste {
 
         int opcao = 0;
         while (opcao != 10){
-            Scanner sc = new Scanner(System.in);
+            sc = new Scanner(System.in);
             System.out.println("Escolha uma opcao: ");
             System.out.println("Opcao 1: Cadastrar anestesista");
             System.out.println("Opcao 2: Cadastrar Enfermeiro");
@@ -106,7 +106,7 @@ public class Teste {
                         System.out.println("Cpf fora da base de dados");
                         break;
                     }
-                    procedimentoEstetico.add(new ProcedimentoEstetico(m,a,p));
+                    procedimentoEsteticos.add(new ProcedimentoEstetico(m,a,p));
                     break;
                 case 8:
                     m = Consulta.BuscaMedico(funcionarios);
@@ -129,7 +129,7 @@ public class Teste {
                         System.out.println("CPF ou senha incorreto");
                     }
                     else{
-                        ResponsavelTecnico.BuscaProcedimentoCirurgico(procedimentoCirurgicos);
+                        ProcedimentoCirurgico procedimentoliberado1 = ResponsavelTecnico.BuscaProcedimentoCirurgico(procedimentoCirurgicos);
                         tec.LiberaProcedimentoCirurgico(procedimentoliberado1);
                     }
                     break;
@@ -142,17 +142,10 @@ public class Teste {
                         System.out.println("CPF ou senha incorreto");
                     }
                     else{
-                        sc = new Scanner(System.in);
-                        System.out.println("Digite o id do procedimento: ");
-                        int idprocedimento = sc.nextInt();
-                        Optional<ProcedimentoEstetico> proced = arrayList.stream().filter(f -> f.idprocedimento.equals(idprocedimento)).findFirst();
-                        ProcedimentoEstetico procedimentoliberado2 = proced.isPresent() ? (ProcedimentoEstetico) proced.get() : null;
+                        ProcedimentoEstetico procedimentoliberado2 = ResponsavelTecnico.BuscaProcedimentoEstetico(procedimentoEsteticos);
                         tec.LiberaProcedimentoEstetico(procedimentoliberado2);
                     }
                     break;
-
-
-
             }
         }
     }
