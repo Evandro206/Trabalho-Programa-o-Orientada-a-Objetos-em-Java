@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static TrabalhoAula06.Verificações.Autenticacao.autenticar;
 
-public class ResposavelTecnico extends Responsaveis {
+public class ResponsavelTecnico extends Responsaveis {
     public boolean liberarProcedimento() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Você deseja liberar o procedimento?\n1 - Sim\n2 - Não");

@@ -16,4 +16,7 @@ public class Responsaveis extends Funcionario {
         System.out.println("Digite a senha: ");
         this.senha = sc.nextLine();
     }
+    public String getSenha() {
+        return senha;
+    }
 }

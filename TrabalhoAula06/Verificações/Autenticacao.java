@@ -12,7 +12,7 @@ public class Autenticacao {
         if (login.equals(responsavel.nomeFuncionario)) {
             System.out.println("Senha: ");
             String senha = sc.nextLine();
-            if (senha.equals(responsavel.senha)) {
+            if (senha.equals(responsavel.getSenha())) {
                 return true;
             } else {
                 System.out.println("Login ou senha incorretos!\n Tente novamente!");
