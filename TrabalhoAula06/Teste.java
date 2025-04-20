@@ -1,5 +1,6 @@
 package TrabalhoAula06;
 
+import TrabalhoAula06.Agendados.Consulta;
 import TrabalhoAula06.Agendados.ProcedimentoCirurgico;
 import TrabalhoAula06.Agendados.ProcedimentoEstetico;
 import TrabalhoAula06.Funcionarios.Anestesista;
@@ -17,6 +18,7 @@ public class Teste {
         ArrayList<Paciente> pacientes = new ArrayList<>();
         ArrayList<ProcedimentoCirurgico> procedimentoCirurgicos = new ArrayList<>();
         ArrayList<ProcedimentoEstetico> procedimentoEstetico = new ArrayList<>();
+        ArrayList<Consulta> consultas = new ArrayList<>();
         Medico m;
         Paciente p;
         Anestesista a;
@@ -35,7 +37,7 @@ public class Teste {
         int opcao = 0;
         while (opcao != 10){
             Scanner sc = new Scanner(System.in);
-            System.out.println("Escolha uma opcao(: ");
+            System.out.println("Escolha uma opcao: ");
             System.out.println("Opcao 1: Cadastrar anestesista");
             System.out.println("Opcao 2: Cadastrar Enfermeiro");
             System.out.println("Opcao 3: Cadastrar Medico");
@@ -45,8 +47,11 @@ public class Teste {
             System.out.println("Opcao 7: Agendar Procedimento de estetico");
             System.out.println("Opcao 8: Agendar consulta");
             System.out.println("Opcao 9: Liberar Procedimento de Cirurgico");
-            System.out.println("Opcao 10: Liberar Procedimento de estetica");
-            System.out.println("Opcao 11: Encerrar o programa");
+            System.out.println("Opcao 10: Liberar Procedimento de Estetica");
+            System.out.println("Opcao 11: Exibe Consulta");
+            System.out.println("Opcao 12: Exibe Procedimento de Cirurgico");
+            System.out.println("Opcao 13: Exibe Procedimento de Estetico");
+            System.out.println("Opcao 14: Encerrar o programa");
             opcao = sc.nextInt();
             switch(opcao){
                 case 1:
@@ -66,16 +71,79 @@ public class Teste {
                     break;
                 case 6:
                     m = ProcedimentoCirurgico.BuscaMedico(funcionarios);
+                    if(m == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
                     p = ProcedimentoCirurgico.BuscaPaciente(pacientes);
+                    if(p == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
                     a = ProcedimentoCirurgico.BuscaAnestesista(funcionarios);
+                    if(a == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
                     procedimentoCirurgicos.add(new ProcedimentoCirurgico(m,a,p));
                     break;
                 case 7:
-                    m = ProcedimentoCirurgico.BuscaMedico(funcionarios);
-                    p = ProcedimentoCirurgico.BuscaPaciente(pacientes);
-                    a = ProcedimentoCirurgico.BuscaAnestesista(funcionarios);
+                    m = ProcedimentoEstetico.BuscaMedico(funcionarios);
+                    if(m == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
+                    p = ProcedimentoEstetico.BuscaPaciente(pacientes);
+                    if(p == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
+                    a = ProcedimentoEstetico.BuscaAnestesista(funcionarios);
+                    if(a == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
                     procedimentoEstetico.add(new ProcedimentoEstetico(m,a,p));
                     break;
+                case 8:
+                    m = Consulta.BuscaMedico(funcionarios);
+                    if(m == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
+                    p = Consulta.BuscaPaciente(pacientes);
+                    if(p == null){
+                        System.out.println("Cpf fora da base de dados");
+                        break;
+                    }
+                    consultas.add(new Consulta(m,p));
+                case 9:
+                    ResponsavelTecnico tec = Funcionario.BuscaTecnico(funcionarios);
+                    if (tec == null){
+                        Scanner sc = new Scanner(System.in);
+                        System.out.println("Digite a senha ");
+                        String senhav = sc.nextLine();
+                        System.out.println("CPF ou senha incorreto");
+                    }
+                    else{
+                        tec.LiberaProcedimentoCirurgico(????????????????????????);
+                    }
+                    break;
+                case 10:
+                    ResponsavelTecnico tec = Funcionario.BuscaTecnico(funcionarios);
+                    if (tec == null){
+                        Scanner sc = new Scanner(System.in);
+                        System.out.println("Digite a senha ");
+                        String senhav = sc.nextLine();
+                        System.out.println("CPF ou senha incorreto");
+                    }
+                    else{
+                        tec.LiberaProcedimentoEstetico(?????????????????????????);
+                    }
+                    break;
+
+
+
             }
         }
     }

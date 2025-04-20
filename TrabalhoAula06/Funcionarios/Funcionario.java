@@ -1,5 +1,9 @@
 package TrabalhoAula06.Funcionarios;
 
+import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
+
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public abstract class Funcionario {
@@ -30,6 +34,11 @@ public abstract class Funcionario {
         System.out.println("ID: " + idFuncionario);
         System.out.println("CPF: " + this.cpf);
         System.out.println("Salário: " + this.salario);
+    }
+
+    public static ResponsavelTecnico BuscaTecnico(ArrayList<Funcionario> arrayList) {
+        Optional<Funcionario> resp= arrayList.stream().filter(f -> f.cpf.equals(cpf)).findFirst();
+        return resp.isPresent() ? (ResponsavelTecnico) resp.get() : null;
     }
 
 }
