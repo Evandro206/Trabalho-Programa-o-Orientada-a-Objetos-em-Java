@@ -38,7 +38,7 @@ public class Teste {
         pacientes.add(new Paciente());
 
         int opcao = 0;
-        while (opcao != 10){
+        while (opcao != 11){
             sc = new Scanner(System.in);
             System.out.println("Escolha uma opcao: ");
             System.out.println("Opcao 1: Cadastrar anestesista");
@@ -51,10 +51,7 @@ public class Teste {
             System.out.println("Opcao 8: Agendar consulta");
             System.out.println("Opcao 9: Liberar Procedimento de Cirurgico");
             System.out.println("Opcao 10: Liberar Procedimento de Estetica");
-            System.out.println("Opcao 11: Exibe Consulta");
-            System.out.println("Opcao 12: Exibe Procedimento de Cirurgico");
-            System.out.println("Opcao 13: Exibe Procedimento de Estetico");
-            System.out.println("Opcao 14: Encerrar o programa");
+            System.out.println("Opcao 11: Encerrar o programa");
             opcao = sc.nextInt();
             switch(opcao){
                 case 1:
@@ -145,7 +142,8 @@ public class Teste {
                         ProcedimentoEstetico procedimentoliberado2 = ResponsavelTecnico.BuscaProcedimentoEstetico(procedimentoEsteticos);
                         tec.LiberaProcedimentoEstetico(procedimentoliberado2);
                     }
-                    
+                    break;
+                case 11:
                     break;
             }
         }
