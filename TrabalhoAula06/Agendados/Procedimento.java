@@ -16,14 +16,16 @@ abstract class Procedimento {
     public Anestesista anestesista;
     public Paciente paciente;
     private boolean liberado;
+    public int idprocedimento = 0;
 
 
     public Procedimento(Medico m, Anestesista a, Paciente p) {
-
         medico = m;
         anestesista = a;
         paciente = p;
         liberado = false;
+        System.out.println(idprocedimento);
+        idprocedimento++;
     }
 
     public static Medico BuscaMedico(ArrayList<Funcionario> arrayList){

@@ -10,6 +10,7 @@ import TrabalhoAula06.Funcionarios.Responsaveis.Medico;
 import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Teste {
@@ -22,6 +23,8 @@ public class Teste {
         Medico m;
         Paciente p;
         Anestesista a;
+        Scanner sc = new Scanner(System.in);
+        ResponsavelTecnico tec;
 
         System.out.println("Cadastre o primeiro anestesista");
         funcionarios.add(new Anestesista());
@@ -118,27 +121,33 @@ public class Teste {
                     }
                     consultas.add(new Consulta(m,p));
                 case 9:
-                    ResponsavelTecnico tec = Funcionario.BuscaTecnico(funcionarios);
+                    tec = Funcionario.BuscaTecnico(funcionarios);
                     if (tec == null){
-                        Scanner sc = new Scanner(System.in);
+                        sc = new Scanner(System.in);
                         System.out.println("Digite a senha ");
                         String senhav = sc.nextLine();
                         System.out.println("CPF ou senha incorreto");
                     }
                     else{
-                        tec.LiberaProcedimentoCirurgico(????????????????????????);
+                        ResponsavelTecnico.BuscaProcedimentoCirurgico(procedimentoCirurgicos);
+                        tec.LiberaProcedimentoCirurgico(procedimentoliberado1);
                     }
                     break;
                 case 10:
-                    ResponsavelTecnico tec = Funcionario.BuscaTecnico(funcionarios);
+                    tec = Funcionario.BuscaTecnico(funcionarios);
                     if (tec == null){
-                        Scanner sc = new Scanner(System.in);
+                        sc = new Scanner(System.in);
                         System.out.println("Digite a senha ");
                         String senhav = sc.nextLine();
                         System.out.println("CPF ou senha incorreto");
                     }
                     else{
-                        tec.LiberaProcedimentoEstetico(?????????????????????????);
+                        sc = new Scanner(System.in);
+                        System.out.println("Digite o id do procedimento: ");
+                        int idprocedimento = sc.nextInt();
+                        Optional<ProcedimentoEstetico> proced = arrayList.stream().filter(f -> f.idprocedimento.equals(idprocedimento)).findFirst();
+                        ProcedimentoEstetico procedimentoliberado2 = proced.isPresent() ? (ProcedimentoEstetico) proced.get() : null;
+                        tec.LiberaProcedimentoEstetico(procedimentoliberado2);
                     }
                     break;
 

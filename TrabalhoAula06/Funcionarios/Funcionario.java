@@ -37,6 +37,9 @@ public abstract class Funcionario {
     }
 
     public static ResponsavelTecnico BuscaTecnico(ArrayList<Funcionario> arrayList) {
+        System.out.println("Digite o cpf: ");
+        Scanner scanner = new Scanner(System.in);
+        String cpf = scanner.nextLine();
         Optional<Funcionario> resp= arrayList.stream().filter(f -> f.cpf.equals(cpf)).findFirst();
         return resp.isPresent() ? (ResponsavelTecnico) resp.get() : null;
     }
