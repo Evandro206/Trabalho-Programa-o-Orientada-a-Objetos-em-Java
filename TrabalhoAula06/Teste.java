@@ -10,7 +10,6 @@ import TrabalhoAula06.Funcionarios.Responsaveis.Medico;
 import TrabalhoAula06.Funcionarios.Responsaveis.ResponsavelTecnico;
 
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Teste {
